@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Service Area - 30 Minutes from Azle, TX | Azle Drainage</title>
+    <meta name="description" content="Azle Drainage serves all cities within 30 minutes of Azle, TX including Springtown, Weatherford, Fort Worth, Boyd, and more. Based in Azle, serving Parker County and beyond.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            overflow-x: hidden;
+        }
+        
+        /* Brand Colors */
+        :root {
+            --primary-green: #115740;
+            --accent-orange: #f5a623;
+            --secondary-blue: #1e5a8e;
+            --text-dark: #1f2937;
+            --text-light: #ffffff;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --bg-black: #000000;
+            --red-accent: #dc2626;
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header */
+        .header {
+            background: var(--bg-black);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo {
+            height: 55px;
+            width: auto;
+            background: none;
+            padding: 0;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav a:hover {
+            color: var(--accent-orange);
+        }
+
+        .phone-button {
+            background-color: #1e5a8e;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .phone-button:hover {
+            background-color: #165080;
+            transform: translateY(-2px);
+        }
+
+        /* Navigation Dropdown */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown-toggle {
+            cursor: pointer;
+        }
+
+        .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-white);
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 1px solid #f3f4f6;
+            transition: all 0.3s ease;
+        }
+
+        .nav-dropdown-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .nav-dropdown-menu a:hover {
+            background: var(--accent-orange);
+            color: var(--text-dark);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--accent-orange);
+            color: var(--text-dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #e0951f;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-orange);
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--accent-orange);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--accent-orange);
+            color: var(--text-dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23115740" width="1200" height="800"/><rect fill="%230d4a35" x="0" y="400" width="1200" height="400"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            padding: 8rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero h1 {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .service-radius {
+            background: var(--accent-orange);
+            color: var(--text-dark);
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        /* Sale Offer Styling */
+        .sale-offer-container {
+            background: rgba(255, 255, 255, 0.95);
+            border: 4px solid var(--accent-orange);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem auto;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 8px 32px rgba(245, 166, 35, 0.3);
+            animation: pulse-glow 2s ease-in-out infinite alternate;
+            max-width: 800px;
+        }
+        
+        .limited-time-badge {
+            background: #dc2626;
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+        
+        .sale-offer {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent-orange);
+            margin: 0;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sale-urgency {
+            background: var(--accent-orange);
+            color: var(--text-dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 1rem;
+            animation: bounce 1s ease-in-out infinite;
+        }
+        
+        .sale-cta {
+            background: #dc2626;
+            color: var(--text-light);
+            font-size: 1.25rem;
+            font-weight: 800;
+            padding: 1.5rem 3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+            animation: pulse-button 2s ease-in-out infinite;
+        }
+        
+        .sale-cta:hover {
+            background: #b91c1c;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.6);
+        }
+        
+        /* Animations */
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 8px 32px rgba(245, 166, 35, 0.3);
+            }
+            100% {
+                box-shadow: 0 12px 40px rgba(245, 166, 35, 0.5);
+            }
+        }
+        
+        @keyframes blink {
+            0%, 50% {
+                opacity: 1;
+            }
+            51%, 100% {
+                opacity: 0.7;
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-5px);
+            }
+            60% {
+                transform: translateY(-3px);
+            }
+        }
+        
+        @keyframes pulse-button {
+            0% {
+                box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+            }
+            100% {
+                box-shadow: 0 8px 25px rgba(220, 38, 38, 0.6);
+            }
+        }
+        
+        /* Content Sections */
+        .content-section {
+            padding: 4rem 0;
+        }
+        
+        .content-section h2 {
+            color: var(--primary-green);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .content-section p {
+            margin-bottom: 1.5rem;
+            color: #374151;
+            text-align: center;
+        }
+        
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .city-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent-orange);
+        }
+        
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .city-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .city-distance {
+            background: var(--accent-orange);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .city-description {
+            color: #6b7280;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .city-link {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .city-link:hover {
+            color: var(--accent-orange);
+        }
+        
+        .map-section {
+            background: var(--bg-light);
+            padding: 4rem 0;
+        }
+        
+        .map-container {
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-blue));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0;
+        }
+        
+        .contact-form {
+            padding: 4rem 0;
+            background: var(--bg-white);
+        }
+        
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary-green);
+        }
+        
+        .contact-form-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 3rem;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+        }
+        
+        .submit-button {
+            width: 100%;
+            background: var(--accent-orange);
+            color: var(--text-dark);
+            padding: 1.25rem 2rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-button:hover {
+            background: #e0951f;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--bg-black);
+            color: var(--text-light);
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+        
+        .footer h3 {
+            color: var(--accent-orange);
+            margin-bottom: 1rem;
+        }
+        
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer a {
+            color: var(--text-light);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: var(--accent-orange);
+        }
+        
+        /* Bottom Conversion Section */
+        .bottom-conversion {
+            padding: 5rem 0;
+            background: #f0f9f4;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .conversion-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .conversion-emoji {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .conversion-headline {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .conversion-subheadline {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .conversion-cta {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: var(--text-dark);
+            padding: 1.5rem 3rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(245, 166, 35, 0.3);
+        }
+        
+        .conversion-cta:hover {
+            background: #e0951f;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(245, 166, 35, 0.4);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .sale-offer {
+                font-size: 2rem;
+            }
+            
+            .cities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav {
+                display: none;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .conversion-headline {
+                font-size: 2rem;
+            }
+            
+            .conversion-cta {
+                font-size: 1.125rem;
+                padding: 1.25rem 2.5rem;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/AzleDrainage2ndLogo.png" alt="Azle Drainage - Professional Drainage Solutions" class="header-logo">
+                </a>
+                <nav class="nav">
+                    <a href="index.html">Home</a>
+                    <div class="nav-dropdown">
+                        <a href="#services" class="nav-dropdown-toggle">Services</a>
+                        <div class="nav-dropdown-menu">
+                            <a href="french-drains.html">French Drains</a>
+                            <a href="yard-grading.html">Yard Grading</a>
+                            <a href="catch-basins.html">Catch Basins</a>
+                            <a href="downspout-extensions.html">Downspout Extensions</a>
+                            <a href="foundation-drainage.html">Foundation Drainage</a>
+                            <a href="drainage-repairs.html">Drainage Repairs</a>
+                        </div>
+                    </div>
+                    <a href="service-area.html">Service Area</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <a href="tel:+16825839857" class="phone-button">Text Us: (682) 583-9857</a>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn-primary">Get a Quote</a>
+                    <a href="tel:+16825839857" class="btn-secondary">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Our Service Area</h1>
+            <p class="hero-subtitle">30 Minutes from Azle, TX - Serving Parker County and Beyond</p>
+            <div class="service-radius">📍 Based in Azle • Serving 30-Minute Radius</div>
+            
+            <!-- END OF YEAR SALE OFFER -->
+            <div class="sale-offer-container">
+                <div class="limited-time-badge">⏰ LIMITED TIME</div>
+                <h2 class="sale-offer">END OF YEAR SALE: $200 OFF YOUR PROJECT<br>BOOK BEFORE DECEMBER 31ST</h2>
+                <div class="sale-urgency">🎯 Only 31 Days Left!</div>
+            </div>
+            
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary sale-cta">CLAIM YOUR $200 DISCOUNT</a>
+                <a href="tel:8175550123" class="btn-secondary">Call (817) 555-0123</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cities We Serve Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2>Cities We Proudly Serve</h2>
+            <p>If you're within 30 minutes of Azle, TX, we serve you! Our local base in Azle means faster response times, lower travel costs, and better knowledge of your area's unique drainage challenges.</p>
+            
+            <div class="cities-grid">
+                <div class="city-card">
+                    <div class="city-name">Azle</div>
+                    <div class="city-distance">🏠 Our Home Base</div>
+                    <div class="city-description">Based right here in Azle, we know every neighborhood, soil type, and drainage challenge in our hometown.</div>
+                    <a href="azle.html" class="city-link">Learn More About Azle Services →</a>
+                </div>
+                
+                <div class="city-card">
+                    <div class="city-name">Springtown</div>
+                    <div class="city-distance">🚗 15 Minutes Away</div>
+                    <div class="city-description">Just 15 minutes from Azle, we serve Springtown with quick response times and local expertise.</div>
+                    <a href="springtown.html" class="city-link">Learn More About Springtown Services →</a>
+                </div>
+                
+                <div class="city-card">
+                    <div class="city-name">Weatherford</div>
+                    <div class="city-distance">🚗 20 Minutes Away</div>
+                    <div class="city-description">Parker County neighbors! We understand Weatherford's historic downtown and newer developments.</div>
+                    <a href="weatherford.html" class="city-link">Learn More About Weatherford Services →</a>
+                </div>
+                
+                <div class="city-card">
+                    <div class="city-name">Fort Worth</div>
+                    <div class="city-distance">🚗 25 Minutes Away</div>
+                    <div class="city-description">Serving the west side of Fort Worth with the same quality service and local knowledge.</div>
+                    <a href="#contact" class="city-link">Get Fort Worth Quote →</a>
+                </div>
+                
+                <div class="city-card">
+                    <div class="city-name">Boyd</div>
+                    <div class="city-distance">🚗 10 Minutes Away</div>
+                    <div class="city-description">Our closest neighbor! Boyd residents get the fastest response times and most competitive pricing.</div>
+                    <a href="#contact" class="city-link">Get Boyd Quote →</a>
+                </div>
+                
+                <div class="city-card">
+                    <div class="city-name">Willow Park</div>
+                    <div class="city-distance">🚗 15 Minutes Away</div>
+                    <div class="city-description">Just 15 minutes from Azle, we serve Willow Park with local expertise and quick response.</div>
+                    <a href="#contact" class="city-link">Get Willow Park Quote →</a>
+                </div>
+                
+                <div class="city-card">
+                    <div class="city-name">Saginaw</div>
+                    <div class="city-distance">🚗 12 Minutes Away</div>
+                    <div class="city-description">Near Eagle Mountain Lake, we understand the unique drainage challenges of lakefront properties.</div>
+                    <a href="#contact" class="city-link">Get Saginaw Quote →</a>
+                </div>
+                
+                <div class="city-card">
+                    <div class="city-name">Reno</div>
+                    <div class="city-distance">🚗 18 Minutes Away</div>
+                    <div class="city-description">Serving Reno with the same quality service and local knowledge that makes us the preferred choice.</div>
+                    <a href="#contact" class="city-link">Get Reno Quote →</a>
+                </div>
+                
+                <div class="city-card">
+                    <div class="city-name">Briar</div>
+                    <div class="city-distance">🚗 8 Minutes Away</div>
+                    <div class="city-description">Our closest service area! Briar residents get the fastest response times and most competitive pricing.</div>
+                    <a href="#contact" class="city-link">Get Briar Quote →</a>
+                </div>
+                
+                <div class="city-card">
+                    <div class="city-name">Newark</div>
+                    <div class="city-distance">🚗 22 Minutes Away</div>
+                    <div class="city-description">Serving Newark and surrounding areas with the same quality service and local expertise.</div>
+                    <a href="#contact" class="city-link">Get Newark Quote →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <h2>Our 30-Minute Service Radius</h2>
+                <p>Based in Azle, TX, we serve all cities and towns within a 30-minute driving radius. This ensures fast response times, competitive pricing, and local expertise for every customer.</p>
+                
+                <div class="map-placeholder">
+                    🗺️ Interactive Service Area Map<br>
+                    <small>30-minute radius from Azle, TX</small>
+                </div>
+                
+                <h3>Why Choose a Local Azle-Based Company?</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div>
+                        <h4>⚡ Fast Response</h4>
+                        <p>We're based in Azle, so we can respond to emergencies within hours, not days.</p>
+                    </div>
+                    <div>
+                        <h4>💰 Competitive Pricing</h4>
+                        <p>Lower travel costs mean better prices for you compared to distant contractors.</p>
+                    </div>
+                    <div>
+                        <h4>🏠 Local Knowledge</h4>
+                        <p>We understand your area's soil conditions, weather patterns, and common issues.</p>
+                    </div>
+                    <div>
+                        <h4>🤝 Community Support</h4>
+                        <p>When you choose us, you're supporting a local family business in your community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact-form">
+        <div class="container">
+            <h2>Check if We Serve Your Area</h2>
+            <p class="contact-form-subtitle">Not sure if you're within our service area? Fill out the form below and we'll let you know!</p>
+            
+            <div class="form-container">
+                <form id="drainage-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Full Name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Property Address *</label>
+                        <input type="text" id="address" name="address" placeholder="Street Address, City, TX" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service_interest">Service Needed *</label>
+                        <select id="service_interest" name="service_interest" required>
+                            <option value="">Select Service</option>
+                            <option value="French Drains">French Drains</option>
+                            <option value="Yard Grading">Yard Grading</option>
+                            <option value="Catch Basins">Catch Basins</option>
+                            <option value="Foundation Drainage">Foundation Drainage</option>
+                            <option value="Drainage Repair">Drainage Repair</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <input type="hidden" name="service_type" value="Drainage">
+                    <input type="hidden" name="location" value="Service Area Inquiry">
+                    
+                    <button type="submit" class="submit-button">Check My Service Area & Get Quote</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Conversion Section -->
+    <section class="bottom-conversion">
+        <div class="container">
+            <div class="conversion-content">
+                <div class="conversion-emoji">🤔</div>
+                <h2 class="conversion-headline">Still reading? You must be pretty interested.</h2>
+                <p class="conversion-subheadline">You scrolled all the way down here. Just fill out the form already — we don't bite.</p>
+                <a href="#contact" class="conversion-cta">OK Fine, Let's Do This</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h3>Azle Drainage - Your Local Service Area Experts</h3>
+            <p>Based in Azle, TX • Serving 30-Minute Radius</p>
+            <p><a href="tel:8175550123">(817) 555-0123</a></p>
+            <p>Licensed & Insured in Texas</p>
+            <p>&copy; 2025 Azle Drainage. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form handling
+        document.getElementById('drainage-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const submitButton = form.querySelector('.submit-button');
+            
+            submitButton.disabled = true;
+            submitButton.textContent = 'Checking...';
+            
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name').trim(),
+                phone: formData.get('phone').trim(),
+                address: formData.get('address').trim(),
+                service_interest: formData.get('service_interest'),
+                service_type: formData.get('service_type'),
+                location: formData.get('location')
+            };
+            
+            try {
+                const response = await fetch('https://web-production-8fb9e.up.railway.app/webhook/new-lead', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    alert('Thank you! We\'ll check your service area and contact you shortly with your free assessment.');
+                    form.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('Something went wrong. Please call us directly at (817) 555-0123');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Check My Service Area & Get Quote';
+            }
+        });
+        
+        // Phone number formatting
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 6) {
+                value = value.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+            } else if (value.length >= 3) {
+                value = value.replace(/(\d{3})(\d{0,3})/, '($1) $2');
+            }
+            e.target.value = value;
+        });
+    </script>
+</body>
+</html>

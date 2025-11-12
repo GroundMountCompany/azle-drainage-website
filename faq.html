@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - Azle Drainage Solutions | Complete FAQ Guide</title>
+    <meta name="description" content="Get answers to 20+ common drainage questions. Learn about costs, timelines, permits, and solutions for Azle, TX drainage problems. Expert answers from local professionals.">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            overflow-x: hidden;
+        }
+
+        /* Brand Colors */
+        :root {
+            --primary-green: #115740;
+            --accent-orange: #f5a623;
+            --secondary-blue: #1e5a8e;
+            --text-dark: #1f2937;
+            --text-light: #ffffff;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --red-accent: #ef4444;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* FAQ Page Hero */
+        .faq-page-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #115740;
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .faq-page-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .faq-page-hero p {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            margin-top: 24px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .breadcrumb a:hover {
+            border-bottom-color: white;
+        }
+
+        /* FAQ Page Content */
+        .faq-page-content {
+            padding: 80px 20px;
+            background: #f9fafb;
+        }
+
+        .faq-page-content .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-category {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-category h2 {
+            color: #115740;
+            font-size: 28px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 3px solid #f5a623;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: #115740;
+        }
+
+        .faq-icon {
+            font-size: 24px;
+            color: #f5a623;
+            font-weight: 700;
+            transition: transform 0.3s ease;
+            margin-left: 16px;
+            flex-shrink: 0;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .faq-answer.active {
+            max-height: 600px;
+            padding-top: 16px;
+        }
+
+        .faq-answer p {
+            color: #6b7280;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* FAQ CTA */
+        .faq-cta {
+            background: linear-gradient(135deg, #115740, #0d4a35);
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 60px;
+            color: white;
+        }
+
+        .faq-cta h3 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .faq-cta p {
+            font-size: 18px;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 48px;
+            background: #ef4444;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 4px 16px rgba(239, 68, 68, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-left: 16px;
+            padding: 16px 48px;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .back-home:hover {
+            background: white;
+            color: #115740;
+        }
+
+        @media (max-width: 768px) {
+            .faq-page-hero h1 {
+                font-size: 32px;
+            }
+
+            .faq-category {
+                padding: 24px;
+            }
+
+            .faq-category h2 {
+                font-size: 24px;
+            }
+
+            .faq-question {
+                font-size: 16px;
+            }
+
+            .faq-cta {
+                padding: 40px 24px;
+            }
+
+            .faq-cta h3 {
+                font-size: 24px;
+            }
+
+            .cta-button, .back-home {
+                display: block;
+                margin: 8px 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FAQ Page Hero -->
+    <section class="faq-page-hero">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <p>Everything you need to know about drainage solutions in Azle, TX</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / FAQ
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Page Content -->
+    <section class="faq-page-content">
+        <div class="container">
+
+            <!-- Pricing & Cost Category -->
+            <div class="faq-category">
+                <h2>💰 Pricing & Cost</h2>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How much does drainage work cost?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Drainage costs vary significantly based on your specific situation—soil conditions, yard size, drainage complexity, and accessibility all factor in. Simple projects might start around a few hundred dollars, while comprehensive drainage systems can run several thousand. That's why we offer free assessments. We'll visit your property, evaluate the problem, explain your options, and give you transparent pricing with no hidden fees. Most Azle-area homeowners are surprised how affordable professional drainage solutions can be. Text us photos for a ballpark estimate: (682) 583-9857.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you offer free estimates?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we provide free drainage assessments for all properties in our service area (Azle and within 30 minutes). We'll visit your property, evaluate the problem, explain your options, and give you transparent pricing. No pressure, no obligation—just honest advice from local drainage experts.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I get a price range before scheduling an estimate?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. Text us photos of your drainage problem along with a description, and we'll give you a ballpark price range. While exact pricing requires an on-site assessment, we can usually give you a realistic range within a few hours. We believe in transparency from the start.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you offer financing or payment plans?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We work with homeowners to make drainage solutions affordable. We accept all major payment methods and can discuss payment arrangements for larger projects. Our priority is fixing your problem—we'll work with you to make it happen.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Why do drainage costs vary so much?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Costs depend on: depth and length of trenching required, soil conditions (North Texas clay is tougher to excavate), accessibility for equipment, existing landscape that needs protection, whether permits are required, and complexity of the drainage solution. Two yards with similar problems can have different costs based on these factors.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Timeline & Process Category -->
+            <div class="faq-category">
+                <h2>⏱️ Project Timeline & Process</h2>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How long will my drainage project take?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Most residential drainage projects take 1-3 days. Simple installations like catch basins or downspout extensions can be completed in a few hours. Extensive French drain systems or full yard regrading may take 3-5 days. We'll give you an accurate timeline during your free estimate and stick to it.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do I need to be home during the project?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No, you don't need to be home while we work. Many of our Azle customers provide access to their yard and we complete the work while they're at their job. We'll text you progress updates and photos throughout the day. We'll only need you present for the initial walkthrough and final inspection.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What's your process from quote to completion?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>(1) Free assessment—we visit your property and evaluate the drainage problem. (2) Transparent quote—we explain your options and provide clear pricing. (3) Scheduling—we book your project, usually within the same week. (4) Work completion—professional installation with daily updates. (5) Final walkthrough—we show you the completed work and answer questions. (6) Follow-up—we check in after the next rain to ensure everything works perfectly.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can you work in bad weather?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We monitor weather closely and schedule accordingly. Light rain usually doesn't stop us, but heavy storms or saturated ground may require rescheduling for quality and safety. If we need to postpone, we'll reschedule immediately. For emergencies involving active flooding, we'll work in almost any conditions to protect your property.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How soon can you start my project?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Most projects in Azle and surrounding areas are scheduled within 3-7 days of your estimate approval. For urgent situations (active flooding, foundation threats), we prioritize emergency response and can often start same-day or next-day. Winter tends to be less busy, so scheduling is faster during November-February.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Permits & Regulations Category -->
+            <div class="faq-category">
+                <h2>📋 Permits & Regulations</h2>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Will I need permits for drainage work?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Most residential drainage projects in Azle don't require permits. French drains, catch basins, and yard grading typically don't need approval. However, if work involves connecting to city storm systems, significant property regrading, or work near property lines, permits may be required. We handle all permit research and applications if needed—it's included in our service.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you handle HOA approvals?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, if you're in an HOA community in areas like Willow Park or newer Azle subdivisions, we can help you navigate approval requirements. We'll provide documentation, diagrams, and photos your HOA needs. We've worked with most local HOAs and know their common requirements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Are there restrictions on drainage work in Parker County?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Parker County has minimal restrictions on residential drainage work. The main considerations are: not directing water onto neighboring properties, maintaining proper setbacks from property lines, and not interfering with existing easements. We're familiar with all local regulations and ensure your project stays compliant.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Questions Category -->
+            <div class="faq-category">
+                <h2>🔧 Technical Questions</h2>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What's the difference between a French drain and a catch basin?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A French drain is an underground trench filled with gravel and a perforated pipe that collects and redirects subsurface water. It handles water throughout the soil. A catch basin is a surface drain with a grated top that captures water in one spot and channels it through solid pipes to a drainage point. French drains prevent water accumulation; catch basins remove water that's already pooled. Most effective systems use both.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I know if I need drainage work?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Warning signs include: water pooling in your yard 24+ hours after rain, muddy spots that never dry, water against your foundation, damp basement or crawl space, erosion near downspouts, standing water creating mosquito problems, difficulty growing grass in soggy areas, or cracks in your foundation accompanied by drainage issues. If you see any of these around your Azle property, text us photos for an assessment.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Will your equipment damage my yard?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We use professional equipment designed to minimize lawn damage. Small trenchers, compact excavators, and hand tools allow us to work efficiently while protecting your landscape. Yes, there will be temporary disruption during installation, but we restore your yard as close to original condition as possible. Grass regrows over trenches within 4-6 weeks. We take pride in leaving your property better than we found it.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can you fix drainage problems caused by North Texas clay soil?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Clay soil is our specialty—it's what we deal with on almost every Azle-area project. North Texas clay expands when wet (causing foundation movement) and creates a nearly impermeable layer that prevents water absorption. We design drainage systems specifically for clay conditions: deeper trenches, proper gravel selection, correct pipe placement, and adequate slope. Our solutions work WITH clay soil characteristics instead of fighting them.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Area & Emergency Category -->
+            <div class="faq-category">
+                <h2>🚨 Service Area & Emergency</h2>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you offer emergency drainage services?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. For urgent situations—active flooding near your foundation, severe erosion threatening structures, or basement water intrusion—we provide emergency response. We typically respond same-day for emergencies in Azle and surrounding areas. Emergency service may include temporary solutions to protect your property followed by permanent fixes. Call or text (682) 583-9857 and let us know it's urgent.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How far outside Azle do you travel?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We serve Azle, Springtown, Weatherford, Fort Worth, Saginaw, Boyd, Willow Park, Reno, Briar, and Newark—basically within 30 minutes of Azle. If you're outside this area but nearby, contact us anyway. We've occasionally traveled farther for larger projects. We focus on Parker County and western Tarrant County.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Will drainage work increase my property value?</span>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. Proper drainage is a major selling point and protects your investment. Drainage problems scare away buyers, fail inspections, and reduce offers significantly. Fixing drainage issues eliminates buyer concerns, protects your foundation, prevents water damage, and keeps your yard functional. Many Azle homeowners see their drainage investment returned fully (or more) at sale time. Plus, you get to enjoy a dry, usable yard while you live there.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="faq-cta">
+                <h3>Still Have Questions?</h3>
+                <p>Text or call us at (682) 583-9857. We're here to help.</p>
+                <a href="index.html#contact" class="cta-button">Get a Free Assessment</a>
+                <a href="index.html" class="back-home">Back to Homepage</a>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+    function toggleFAQ(button) {
+        const answer = button.nextElementSibling;
+        const isActive = button.classList.contains('active');
+
+        // Close all other FAQs in the same category
+        const category = button.closest('.faq-category');
+        if (category) {
+            category.querySelectorAll('.faq-question').forEach(q => {
+                if (q !== button) {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('active');
+                }
+            });
+        }
+
+        // Toggle current FAQ
+        if (!isActive) {
+            button.classList.add('active');
+            answer.classList.add('active');
+        } else {
+            button.classList.remove('active');
+            answer.classList.remove('active');
+        }
+    }
+    </script>
+
+</body>
+</html>
