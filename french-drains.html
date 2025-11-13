@@ -1259,61 +1259,88 @@
         });
 
         // Form handling
-        document.getElementById('drainage-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            const submitButton = form.querySelector('.submit-btn') || form.querySelector('.submit-button');
-            
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            
-            const formData = new FormData(form);
-            const data = {
-                name: formData.get('name').trim(),
-                phone: formData.get('phone').trim(),
-                email: formData.get('email').trim(),
-                address: formData.get('address').trim(),
-                city: formData.get('city') || '',
-                state: formData.get('state') || 'TX',
-                service_interest: formData.get('service_interest'),
-                service_type: formData.get('service_type')
-            };
-            
-            try {
-                const response = await fetch('https://web-production-8fb9e.up.railway.app/webhook/new-lead', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
+        const formElement = document.getElementById('drainage-form');
+        if (formElement) {
+            formElement.addEventListener('submit', async function(e) {
+                e.preventDefault();
                 
-                if (response.ok) {
-                    alert('Thank you! We\'ll contact you shortly with your free French drain assessment.');
-                    form.reset();
-                } else {
-                    throw new Error('Form submission failed');
+                console.log('Form submission started');
+                
+                const form = e.target;
+                const submitButton = form.querySelector('.submit-btn') || form.querySelector('.submit-button');
+                
+                if (!submitButton) {
+                    console.error('Submit button not found');
+                    return;
                 }
-            } catch (error) {
-                console.error('Form submission error:', error);
-                alert('Something went wrong. Please call us directly at (682) 583-9857');
-            } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = 'Submit';
-            }
-        });
+                
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
+                
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name') ? formData.get('name').trim() : '',
+                    phone: formData.get('phone') ? formData.get('phone').trim() : '',
+                    email: formData.get('email') ? formData.get('email').trim() : '',
+                    address: formData.get('address') ? formData.get('address').trim() : '',
+                    city: formData.get('city') || '',
+                    state: formData.get('state') || 'TX',
+                    service_interest: formData.get('service_interest') || '',
+                    service_type: formData.get('service_type') || 'Drainage'
+                };
+                
+                console.log('Form data collected:', data);
+                
+                try {
+                    console.log('Sending form data to webhook...');
+                    
+                    const response = await fetch('https://web-production-8fb9e.up.railway.app/webhook/new-lead', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    console.log('Response status:', response.status);
+                    
+                    if (response.ok) {
+                        const responseData = await response.json().catch(() => null);
+                        console.log('Form submitted successfully:', responseData);
+                        alert('Thank you! We\'ll contact you shortly with your free French drain assessment.');
+                        form.reset();
+                    } else {
+                        const errorText = await response.text();
+                        console.error('Response error:', errorText);
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    alert('Something went wrong. Please call us directly at (682) 583-9857');
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Submit';
+                }
+            });
+        } else {
+            console.error('Form element not found');
+        }
         
         // Phone number formatting
-        document.getElementById('phone').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length >= 6) {
-                value = value.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
-            } else if (value.length >= 3) {
-                value = value.replace(/(\d{3})(\d{0,3})/, '($1) $2');
-            }
-            e.target.value = value;
-        });
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 6) {
+                    value = value.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+                } else if (value.length >= 3) {
+                    value = value.replace(/(\d{3})(\d{0,3})/, '($1) $2');
+                }
+                e.target.value = value;
+            });
+        } else {
+            console.warn('Phone input element not found');
+        }
     </script>
 
     <!-- Google Places Autocomplete for Address Fields -->
