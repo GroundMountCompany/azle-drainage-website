@@ -65,7 +65,9 @@
     </script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Preload Critical Above-the-Fold Images -->
+    <link rel="preload" as="image" href="images/AzleDrainage2ndLogo.png">
+    <link rel="preload" as="image" href="images/AzleDrainageMAINlogo.png">    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Google Maps API for Address Autocomplete -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6e-nSC3EyqDCGb20gEJSlyfxmU8tj8qQ&libraries=places"></script>
@@ -770,7 +772,7 @@
         <div class="container">
             <div class="header-content">
                 <a href="index.html" class="logo">
-                    <img src="images/AzleDrainage2ndLogo.png" alt="Azle Drainage - Professional Drainage Solutions" class="header-logo" loading="lazy" width="200" height="55">
+                    <img src="images/AzleDrainage2ndLogo.png" alt="Azle Drainage - Professional Drainage Solutions" class="header-logo" loading="lazy" decoding="async" width="200" height="55">
                 </a>
                 <nav class="nav">
                     <a href="index.html">Home</a>
@@ -822,7 +824,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="images/AzleDrainageMAINlogo.png" alt="Azle Drainage Logo" class="hero-logo" loading="lazy" width="500" height="500">
+                    <img src="images/AzleDrainageMAINlogo.png" alt="Azle Drainage Logo" class="hero-logo" loading="lazy" decoding="async" width="500" height="500">
                 </div>
             </div>
         </div>
@@ -863,7 +865,7 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="images/FrenchDrain.png" loading="lazy" width="800" height="600" alt="French Drain Installation in Newark, TX">
+                        <img src="images/FrenchDrain.png" loading="lazy" decoding="async" width="800" height="600" alt="French Drain Installation in Newark, TX">
                     </div>
                     <div class="service-content">
                         <h3>French Drains</h3>
@@ -873,7 +875,7 @@
                 </div>
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="images/YardGrading.png" loading="lazy" width="800" height="600" alt="Yard Grading in Newark, TX">
+                        <img src="images/YardGrading.png" loading="lazy" decoding="async" width="800" height="600" alt="Yard Grading in Newark, TX">
                     </div>
                     <div class="service-content">
                         <h3>Yard Grading</h3>
@@ -883,7 +885,7 @@
                 </div>
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="images/CatchBasin.png" loading="lazy" width="800" height="600" alt="Catch Basin Installation in Newark, TX">
+                        <img src="images/CatchBasin.png" loading="lazy" decoding="async" width="800" height="600" alt="Catch Basin Installation in Newark, TX">
                     </div>
                     <div class="service-content">
                         <h3>Catch Basins</h3>
@@ -893,7 +895,7 @@
                 </div>
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="images/DownspoutExtension.png" loading="lazy" width="800" height="600" alt="Downspout Extensions in Newark, TX">
+                        <img src="images/DownspoutExtension.png" loading="lazy" decoding="async" width="800" height="600" alt="Downspout Extensions in Newark, TX">
                     </div>
                     <div class="service-content">
                         <h3>Downspout Extensions</h3>
@@ -903,7 +905,7 @@
                 </div>
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="images/FoundationDrainage.png" loading="lazy" width="800" height="600" alt="Foundation Drainage in Newark, TX">
+                        <img src="images/FoundationDrainage.png" loading="lazy" decoding="async" width="800" height="600" alt="Foundation Drainage in Newark, TX">
                     </div>
                     <div class="service-content">
                         <h3>Foundation Drainage</h3>
@@ -913,7 +915,7 @@
                 </div>
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="images/DrainageRepair.png" loading="lazy" width="800" height="600" alt="Drainage Repairs in Newark, TX">
+                        <img src="images/DrainageRepair.png" loading="lazy" decoding="async" width="800" height="600" alt="Drainage Repairs in Newark, TX">
                     </div>
                     <div class="service-content">
                         <h3>Drainage Repairs</h3>
@@ -978,18 +980,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="service_interest">Service Needed *</label>
-                        <select id="service_interest" name="service_interest" required>
-                            <option value="">Select Service</option>
-                            <option value="French Drains">French Drains</option>
-                            <option value="Yard Grading">Yard Grading</option>
-                            <option value="Catch Basins">Catch Basins</option>
-                            <option value="Downspout Extensions">Downspout Extensions</option>
-                            <option value="Foundation Drainage">Foundation Drainage</option>
-                            <option value="Drainage Repairs">Drainage Repairs</option>
-                            <option value="Not Sure / Multiple">Not Sure / Multiple Services</option>
-                        </select>
-                        <div class="error-message" id="service_interest-error">Please select a service</div>
                     </div>
 
                     <input type="hidden" name="service_type" value="Drainage">
@@ -1036,7 +1026,7 @@
                 address: formData.get('address').trim(),
                 city: formData.get('city') || 'Newark',
                 state: formData.get('state') || 'TX',
-                service_interest: formData.get('service_interest'),
+                service_interest: '', // Always empty - will qualify via text
                 service_type: formData.get('service_type')
             };
             

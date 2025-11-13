@@ -662,7 +662,7 @@
         <div class="container">
             <div class="header-content">
                 <a href="index.html" class="logo">
-                    <img src="images/AzleDrainage2ndLogo.png" alt="Azle Drainage - Professional Drainage Solutions" class="header-logo" loading="lazy" width="200" height="55">
+                    <img src="images/AzleDrainage2ndLogo.png" alt="Azle Drainage - Professional Drainage Solutions" class="header-logo" loading="lazy" decoding="async" width="200" height="55">
                 </a>
                 <nav class="nav">
                     <a href="index.html">Home</a>
@@ -848,18 +848,6 @@
                         <input type="text" id="address" name="address" placeholder="Street Address, City, TX" required>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="service_interest">Service Needed *</label>
-                        <select id="service_interest" name="service_interest" required>
-                            <option value="">Select Service</option>
-                            <option value="French Drains">French Drains</option>
-                            <option value="Yard Grading">Yard Grading</option>
-                            <option value="Catch Basins">Catch Basins</option>
-                            <option value="Foundation Drainage">Foundation Drainage</option>
-                            <option value="Drainage Repair">Drainage Repair</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
                     
                     <input type="hidden" name="service_type" value="Drainage">
                     <input type="hidden" name="location" value="Service Area Inquiry">
@@ -918,7 +906,7 @@
                     name: formData.get('name') ? formData.get('name').trim() : '',
                     phone: formData.get('phone') ? formData.get('phone').trim() : '',
                     address: formData.get('address') ? formData.get('address').trim() : '',
-                    service_interest: formData.get('service_interest') || '',
+                    service_interest: '', // Always empty - will qualify via text
                     service_type: formData.get('service_type') || 'Drainage',
                     location: formData.get('location') || 'Service Area Inquiry'
                 };
