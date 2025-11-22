@@ -670,6 +670,49 @@
             transform: none;
         }
         
+        /* SMS Consent Checkbox Styling */
+        .form-group.checkbox-group {
+            margin-bottom: 24px;
+        }
+        
+        .checkbox-group .checkbox-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: #115740;
+        }
+        
+        .checkbox-group label {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #1f2937;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+        
+        .checkbox-group label a {
+            color: #115740;
+            text-decoration: underline;
+        }
+        
+        .checkbox-group label a:hover {
+            color: #0d4530;
+        }
+        
+        .checkbox-group .error-message {
+            margin-top: 8px;
+            margin-left: 32px;
+        }
+        
         .submit-button {
             width: 100%;
             padding: 16px;
@@ -1047,6 +1090,16 @@
                     <input type="hidden" id="city" name="city" value="Springtown">
                     <input type="hidden" id="state" name="state" value="TX">
 
+                    <div class="form-group checkbox-group">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="sms_consent" name="sms_consent" required>
+                            <label for="sms_consent">
+                                I agree to receive text messages from Azle Drainage about my drainage estimate and consent to the <a href="privacy-policy.html" target="_blank">Privacy Policy</a>. Message and data rates may apply. Reply STOP to opt out.
+                            </label>
+                        </div>
+                        <div class="error-message" id="sms_consent-error">You must agree to receive text messages to submit this form</div>
+                    </div>
+
                     <button type="submit" class="submit-btn" id="submit-button">Submit</button>
 
                     <p class="form-footer">
@@ -1088,6 +1141,17 @@
             const form = e.target;
             const submitButton = form.querySelector('.submit-btn') || form.querySelector('.submit-button');
             
+            // Validate SMS consent checkbox
+            const smsConsentCheckbox = document.getElementById('sms_consent');
+            if (!smsConsentCheckbox || !smsConsentCheckbox.checked) {
+                const errorElement = document.getElementById('sms_consent-error');
+                if (errorElement) {
+                    errorElement.style.display = 'block';
+                }
+                console.error('SMS consent checkbox not checked');
+                return;
+            }
+            
             submitButton.disabled = true;
             submitButton.textContent = 'Sending...';
             
@@ -1100,7 +1164,8 @@
                 city: formData.get('city') || 'Springtown',
                 state: formData.get('state') || 'TX',
                 service_interest: '', // Always empty - will qualify via text
-                service_type: formData.get('service_type')
+                service_type: formData.get('service_type'),
+                sms_consent: formData.get('sms_consent') === 'on' ? true : false
             };
             
             try {
