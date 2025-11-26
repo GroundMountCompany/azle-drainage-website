@@ -2779,15 +2779,18 @@
                     const responseData = await response.json().catch(() => null);
                     console.log('Form submitted successfully:', responseData);
                     
+                    // Hide the form
+                    const formElement = document.getElementById('drainage-form');
+                    if (formElement) {
+                        formElement.style.display = 'none';
+                    }
+                    
                     // Show success message
                     if (successMessage) {
                         successMessage.classList.add('show');
                     }
                     
-                    // Wait 3 seconds then reload
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 3000);
+                    // Success message stays visible - no reload
                     
                 } catch (error) {
                     console.error('Form submission error:', error);
