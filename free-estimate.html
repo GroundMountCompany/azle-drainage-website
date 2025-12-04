@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Drainage Estimate | Azle Drainage</title>
+    <meta name="description" content="Get a free drainage estimate from Azle's local experts. We respond within minutes.">
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1188908396544679');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1188908396544679&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+    
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        /* Main container - mobile first */
+        .landing-page {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+        
+        /* Hero section - above the fold */
+        .hero {
+            background: linear-gradient(135deg, #115740 0%, #1a7a5a 100%);
+            color: white;
+            padding: 40px 20px 30px;
+            text-align: center;
+        }
+        
+        .headline {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        
+        .subheadline {
+            font-size: 18px;
+            line-height: 1.4;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+        
+        /* Trust badges */
+        .trust-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+        
+        .badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .badge::before {
+            content: '✓';
+            margin-right: 8px;
+            font-weight: 700;
+        }
+        
+        /* Form section */
+        .form-section {
+            padding: 30px 20px;
+        }
+        
+        .form-container {
+            background: white;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #115740;
+            font-size: 15px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px; /* Prevents zoom on iOS */
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+            -webkit-appearance: none; /* Remove iOS styling */
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #115740;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            width: 100%;
+            background: #f5a623;
+            color: #115740;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-height: 56px; /* Large tap target */
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .cta-button:hover {
+            background: #e69610;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+        }
+        
+        .cta-button:active {
+            transform: translateY(0);
+        }
+        
+        .cta-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .subtext {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Success message */
+        .success-message {
+            display: none;
+            background: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            margin: 20px;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        .success-message h2 {
+            color: #155724;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .success-message p {
+            color: #155724;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        /* Benefits section - below the fold */
+        .benefits {
+            padding: 40px 20px;
+            background: #f8f9fa;
+        }
+        
+        .benefits h2 {
+            font-size: 24px;
+            color: #115740;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        .benefit-item::before {
+            content: '•';
+            color: #f5a623;
+            font-size: 32px;
+            font-weight: 700;
+            margin-right: 12px;
+            line-height: 1;
+        }
+        
+        .benefit-item p {
+            font-size: 16px;
+            color: #333;
+            margin: 0;
+        }
+        
+        /* Second CTA */
+        .second-cta {
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #115740;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .privacy-link {
+            margin-top: 20px;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+        
+        /* Error message */
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 20px;
+            color: #721c24;
+            font-size: 14px;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        /* Desktop styles */
+        @media (min-width: 768px) {
+            .headline {
+                font-size: 42px;
+            }
+            
+            .subheadline {
+                font-size: 20px;
+            }
+            
+            .trust-badges {
+                flex-direction: row;
+                justify-content: center;
+            }
+            
+            .badge {
+                flex: 0 0 auto;
+            }
+            
+            .hero {
+                padding: 60px 40px 40px;
+            }
+            
+            .form-section {
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="landing-page">
+        <!-- Hero Section - Above the Fold -->
+        <section class="hero">
+            <h1 class="headline">Standing Water Ruining Your Yard?</h1>
+            <p class="subheadline">Get a free drainage estimate from Azle's local experts. We respond within minutes.</p>
+            
+            <div class="trust-badges">
+                <div class="badge">Free Estimates</div>
+                <div class="badge">Local & Licensed</div>
+                <div class="badge">Fast Response</div>
+            </div>
+        </section>
+        
+        <!-- Form Section -->
+        <section class="form-section">
+            <div class="error-message" id="errorMessage"></div>
+            
+            <form id="leadForm" class="form-container">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        required 
+                        placeholder="John Smith"
+                        autocomplete="name"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        required 
+                        placeholder="(682) 555-1234"
+                        autocomplete="tel"
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Property Address *</label>
+                    <input 
+                        type="text" 
+                        id="address" 
+                        name="address" 
+                        required 
+                        placeholder="123 Main St, Azle, TX"
+                        autocomplete="street-address"
+                    >
+                </div>
+                
+                <button type="submit" class="cta-button" id="submitBtn">
+                    Get My Free Quote
+                </button>
+                
+                <p class="subtext">We'll text you back within minutes</p>
+            </form>
+            
+            <!-- Success Message (hidden by default) -->
+            <div class="success-message" id="successMessage">
+                <h2>Thank You!</h2>
+                <p id="successText"></p>
+            </div>
+        </section>
+        
+        <!-- Benefits Section - Below the Fold -->
+        <section class="benefits">
+            <h2>Why Choose Azle Drainage?</h2>
+            
+            <div class="benefit-item">
+                <p>French drains, yard grading & more</p>
+            </div>
+            
+            <div class="benefit-item">
+                <p>Serving Azle and 30 miles surrounding</p>
+            </div>
+            
+            <div class="benefit-item">
+                <p>No pressure, no obligation</p>
+            </div>
+        </section>
+        
+        <!-- Second CTA -->
+        <section class="second-cta">
+            <button type="button" class="cta-button" onclick="scrollToTop()">
+                Get My Free Quote
+            </button>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p><strong>Azle Drainage</strong></p>
+            <p><a href="tel:6825166797">(682) 516-6797</a></p>
+            <p><a href="mailto:info@azletx.com">info@azletx.com</a></p>
+            <p class="privacy-link"><a href="privacy-policy.html">Privacy Policy</a></p>
+        </footer>
+    </main>
+    
+    <script>
+        // Scroll to top function for second CTA
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('name').focus();
+        }
+        
+        // Form submission handler
+        document.getElementById('leadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            
+            // Basic validation
+            if (!name || !phone || !address) {
+                showError('Please fill out all fields.');
+                return;
+            }
+            
+            // Disable submit button and show loading state
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Hide any previous error messages
+            hideError();
+            
+            try {
+                // Submit to webhook
+                const response = await fetch('https://web-production-8fb9e.up.railway.app/webhook/new-lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: name,
+                        phone: phone,
+                        address: address,
+                        city: '',
+                        state: 'TX',
+                        message: 'Meta Ad - Free Estimate Landing Page',
+                        service_interest: ''
+                    })
+                });
+                
+                if (response.ok) {
+                    // Fire Meta Pixel Lead event
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'Lead');
+                    }
+                    
+                    // Show success message
+                    showSuccess(name, phone);
+                    
+                    // Hide the form
+                    document.getElementById('leadForm').style.display = 'none';
+                    
+                    // Optional: Send to Google Analytics if present
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'generate_lead', {
+                            'event_category': 'Lead',
+                            'event_label': 'Meta Ad Landing Page'
+                        });
+                    }
+                } else {
+                    throw new Error('Server responded with an error');
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                showError('Something went wrong. Please call us at (682) 516-6797 or try again.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+        
+        // Show success message
+        function showSuccess(name, phone) {
+            const successMessage = document.getElementById('successMessage');
+            const successText = document.getElementById('successText');
+            
+            successText.innerHTML = `
+                Thanks <strong>${name}</strong>! We'll text you shortly at <strong>${phone}</strong>.<br><br>
+                Keep an eye on your phone - we typically respond within 5-10 minutes during business hours.
+            `;
+            
+            successMessage.classList.add('show');
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        // Show error message
+        function showError(message) {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.textContent = message;
+            errorMessage.classList.add('show');
+            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        // Hide error message
+        function hideError() {
+            const errorMessage = document.getElementById('errorMessage');
+            errorMessage.classList.remove('show');
+        }
+        
+        // Phone number formatting (optional enhancement)
+        document.getElementById('phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 10) value = value.slice(0, 10);
+            
+            if (value.length >= 6) {
+                e.target.value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6)}`;
+            } else if (value.length >= 3) {
+                e.target.value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
+            } else if (value.length > 0) {
+                e.target.value = value;
+            }
+        });
+    </script>
+</body>
+</html>
+
