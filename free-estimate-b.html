@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Free Drainage Estimate | Azle Drainage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Get a fast, no-obligation drainage estimate from Azle Drainage. Fix yard flooding, standing water, and erosion in the Azle, Texas area." />
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !(function(f,b,e,v,n,t,s){
+      if(f.fbq)return; n=f.fbq=function(){ n.callMethod ?
+        n.callMethod.apply(n,arguments) : n.queue.push(arguments) };
+      if(!f._fbq)f._fbq=n;
+      n.push=n; n.loaded=!0; n.version='2.0';
+      n.queue=[]; t=b.createElement(e); t.async=!0;
+      t.src=v; s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s);
+    })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1188908396544679');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img alt="fb-pixel" height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1188908396544679&ev=PageView&noscript=1" />
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    :root {
+      --primary: #115740;
+      --primary-dark: #0b3c2c;
+      --accent: #f5a623;
+      --bg: #f5f5f5;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --error: #b91c1c;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 14px 30px rgba(0,0,0,0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+    }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+    }
+
+    /* Top contact strip */
+    .top-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .top-strip .brand {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+
+    .top-strip .contact-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .top-strip a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Hero section */
+    .hero {
+      margin-top: 8px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        align-items: flex-start;
+      }
+    }
+
+    .hero-copy {
+      padding: 6px 4px;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    .hero-title {
+      font-size: 1.9rem;
+      line-height: 1.2;
+      font-weight: 800;
+      margin: 0 0 8px;
+      color: #111827;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .hero-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 14px;
+    }
+
+    .hero-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.92rem;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+
+    .hero-bullets li span.icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background-color: rgba(17, 87, 64, 0.09);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #ffffff;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+      color: #111827;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+      margin-bottom: 12px;
+    }
+
+    .hero-highlight-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background-color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .hero-contact-cta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .hero-contact-cta a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* Form card */
+    .form-card {
+      background-color: #ffffff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 20px;
+    }
+
+    @media (min-width: 768px) {
+      .form-card {
+        padding: 22px 22px 24px;
+      }
+    }
+
+    .form-header {
+      margin-bottom: 12px;
+    }
+
+    .form-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 0 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+
+    .form-badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background-color: rgba(17, 87, 64, 0.06);
+      color: var(--primary);
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .form-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .progress {
+      margin: 10px 0 14px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.77rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background-color: #e5e7eb;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 50%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 0.25s ease;
+    }
+
+    .input-group {
+      margin-bottom: 10px;
+    }
+
+    .input-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (min-width: 640px) {
+      .input-row--split {
+        flex-direction: row;
+      }
+
+      .input-row--split .input-group {
+        flex: 1;
+      }
+    }
+
+    label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 3px;
+    }
+
+    .field-hint {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    select {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      padding: 9px 12px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      background-color: #f9fafb;
+    }
+
+    input[type="text"]:focus,
+    input[type="tel"]:focus,
+    select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(17, 87, 64, 0.2);
+      background-color: #ffffff;
+    }
+
+    .error-text {
+      font-size: 0.78rem;
+      color: var(--error);
+      margin-top: 2px;
+      display: none;
+    }
+
+    .error input,
+    .error select {
+      border-color: var(--error);
+      box-shadow: 0 0 0 1px rgba(185, 28, 28, 0.2);
+    }
+
+    .error .error-text {
+      display: block;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+      align-items: center;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #ffffff;
+      box-shadow: 0 10px 18px rgba(17, 87, 64, 0.25);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.75;
+      cursor: default;
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      background-color: #f3f4f6;
+      color: #374151;
+    }
+
+    .btn-primary span.arrow {
+      font-size: 1.1rem;
+      transform: translateY(1px);
+    }
+
+    .submit-note {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .lock-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid #d1d5db;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    .form-footer-meta {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed #e5e7eb;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .form-footer-meta strong {
+      color: #111827;
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+    }
+
+    /* Success & error states */
+    .alert {
+      margin-top: 6px;
+      padding: 8px 10px;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    .alert-success {
+      background-color: #ecfdf5;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+    }
+
+    .alert-error {
+      background-color: #fef2f2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+
+    .alert.visible {
+      display: block;
+    }
+
+    /* Trust strip */
+    .trust-strip {
+      margin-top: 22px;
+      background-color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    }
+
+    @media (min-width: 768px) {
+      .trust-strip {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .trust-main {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .trust-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .trust-text {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .trust-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .trust-pill {
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background-color: rgba(17, 87, 64, 0.05);
+      color: #111827;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--primary);
+    }
+
+    .trust-rating {
+      font-weight: 700;
+      color: #111827;
+    }
+
+    /* Sections below fold */
+    .sections {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    @media (min-width: 880px) {
+      .sections {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      }
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      color: #111827;
+    }
+
+    .steps {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .steps li {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .step-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background-color: rgba(17, 87, 64, 0.1);
+      color: var(--primary-dark);
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+
+    .step-body {
+      flex: 1;
+    }
+
+    .step-heading {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .step-copy {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .benefit-list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0;
+      font-size: 0.88rem;
+    }
+
+    .benefit-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 6px;
+      color: #374151;
+    }
+
+    .benefit-list li span.icon {
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      transform: translateY(1px);
+    }
+
+    .testimonial-card {
+      background-color: #f9fafb;
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      margin-top: 6px;
+      font-size: 0.86rem;
+      color: #111827;
+    }
+
+    .testimonial-name {
+      margin-top: 6px;
+      font-weight: 600;
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 28px;
+      padding-top: 14px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .footer-contact {
+      margin-top: 4px;
+    }
+
+    .footer-contact a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Success overlay state (optional) */
+    .success-state {
+      display: none;
+      text-align: left;
+    }
+
+    .success-state.visible {
+      display: block;
+    }
+
+    .success-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #166534;
+    }
+
+    .success-body {
+      font-size: 0.9rem;
+      color: #065f46;
+      margin-bottom: 8px;
+    }
+
+    .success-secondary {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="wrapper">
+      <header class="top-strip">
+        <div class="brand">Azle Drainage</div>
+        <div class="contact-inline">
+          <span>Serving Azle &amp; surrounding areas</span>
+          <span>•</span>
+          <a href="tel:+16825166797">(682) 516-6797</a>
+          <span>•</span>
+          <a href="mailto:info@azletx.com">info@azletx.com</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <!-- Hero copy -->
+          <div class="hero-copy">
+            <div class="eyebrow">Free drainage estimate</div>
+            <h1 class="hero-title">
+              Fix yard flooding &amp; standing water around Azle, Texas.
+            </h1>
+            <p class="hero-subtitle">
+              Answer a few quick questions and we’ll review your property, then send a custom drainage estimate.
+              No spam. No obligation. Just a straight answer from a local specialist.
+            </p>
+
+            <div class="hero-highlight">
+              <span class="hero-highlight-pill"></span>
+              <span>Most homeowners hear back within <strong>1 business day</strong>.</span>
+            </div>
+
+            <ul class="hero-bullets">
+              <li>
+                <span class="icon">✓</span>
+                <span>French drains, surface drains, grading &amp; erosion control for homes on clay soil.</span>
+              </li>
+              <li>
+                <span class="icon">✓</span>
+                <span>Specialized in <strong>Azle, Lake Country, and NW Fort Worth</strong> neighborhoods.</span>
+              </li>
+              <li>
+                <span class="icon">✓</span>
+                <span>Licensed &amp; insured local team — no high-pressure sales, ever.</span>
+              </li>
+            </ul>
+
+            <p class="hero-contact-cta">
+              Prefer to talk now? Call
+              <a href="tel:+16825166797">(682) 516-6797</a>
+              and mention you saw the Meta ad.
+            </p>
+          </div>
+
+          <!-- Form card -->
+          <aside class="form-card" id="form-card">
+            <div class="form-header">
+              <div class="form-title">
+                Get your free drainage estimate
+                <span class="form-badge">Step 1 of 2</span>
+              </div>
+              <p class="form-subtitle">
+                Start with a few quick details about your drainage issue. Then we’ll grab your contact info to send your estimate.
+              </p>
+            </div>
+
+            <div class="progress">
+              <div class="progress-label">
+                <span>About your property</span>
+                <span id="progress-percentage">50% complete</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+            </div>
+
+            <!-- Success state, hidden by default -->
+            <div class="success-state" id="success-state">
+              <div class="success-title">Thanks! We’ve got your request. ✅</div>
+              <p class="success-body">
+                A drainage specialist from Azle Drainage will review your property details and contact you at the number you provided.
+              </p>
+              <p class="success-secondary">
+                Most homeowners hear back within one business day. If your yard is actively flooding, you can also call us directly at
+                <a href="tel:+16825166797">(682) 516-6797</a>.
+              </p>
+            </div>
+
+            <!-- Alerts -->
+            <div class="alert alert-success" id="alert-success">
+              Thanks! Your request was submitted successfully.
+            </div>
+            <div class="alert alert-error" id="alert-error">
+              Something went wrong submitting your request. Please check your info and try again.
+            </div>
+
+            <!-- Multi-step form -->
+            <form id="estimate-form" novalidate>
+              <!-- Hidden values required by webhook -->
+              <input type="hidden" name="state" value="TX" />
+              <input type="hidden" name="message" value="Meta Ad - Landing Page B" />
+
+              <!-- STEP 1: Property -->
+              <div class="step active" data-step="1">
+                <div class="input-group">
+                  <label for="service_interest">What best describes your drainage issue?</label>
+                  <select id="service_interest" name="service_interest" required>
+                    <option value="">Select an option</option>
+                    <option value="Yard flooding / standing water">
+                      Yard flooding / standing water after rain
+                    </option>
+                    <option value="Water against house / foundation">
+                      Water pooling near house or foundation
+                    </option>
+                    <option value="Erosion / washouts">
+                      Erosion, washouts, or sloping problems
+                    </option>
+                    <option value="Driveway / ditch drainage">
+                      Driveway, culvert, or ditch drainage issue
+                    </option>
+                    <option value="Other drainage issue">
+                      Other drainage issue
+                    </option>
+                  </select>
+                  <div class="error-text">Please choose the closest match.</div>
+                </div>
+
+                <div class="input-group">
+                  <label for="address">Street address</label>
+                  <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    placeholder="123 Main St"
+                    autocomplete="address-line1"
+                    required
+                  />
+                  <div class="field-hint">We only use this to look at your property layout and drainage.</div>
+                  <div class="error-text">Please enter your street address.</div>
+                </div>
+
+                <div class="input-row input-row--split">
+                  <div class="input-group">
+                    <label for="city">City</label>
+                    <input
+                      type="text"
+                      id="city"
+                      name="city"
+                      placeholder="Azle"
+                      value="Azle"
+                      autocomplete="address-level2"
+                      required
+                    />
+                    <div class="error-text">Please enter your city.</div>
+                  </div>
+
+                  <div class="input-group">
+                    <label>State</label>
+                    <input type="text" value="TX" disabled />
+                    <div class="field-hint">We currently serve Azle &amp; nearby Texas areas.</div>
+                  </div>
+                </div>
+
+                <div class="btn-row">
+                  <button type="button" class="btn-primary" id="next-step">
+                    Next: Contact details <span class="arrow">→</span>
+                  </button>
+                </div>
+
+                <div class="submit-note">
+                  <div class="lock-icon">🔒</div>
+                  <span>Your info is secure. We never sell or share your details.</span>
+                </div>
+              </div>
+
+              <!-- STEP 2: Contact -->
+              <div class="step" data-step="2">
+                <div class="input-group">
+                  <label for="name">Your name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="First and last name"
+                    autocomplete="name"
+                    required
+                  />
+                  <div class="error-text">Please enter your name.</div>
+                </div>
+
+                <div class="input-group">
+                  <label for="phone">Mobile phone</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="(555) 555-5555"
+                    autocomplete="tel"
+                    required
+                  />
+                  <div class="field-hint">We’ll text or call you with questions and your estimate. No spam.</div>
+                  <div class="error-text">Please enter a valid phone number.</div>
+                </div>
+
+                <div class="btn-row">
+                  <button type="button" class="btn-secondary" id="prev-step">← Back</button>
+                  <button type="submit" class="btn-primary" id="submit-btn">
+                    Get my free estimate
+                  </button>
+                </div>
+
+                <div class="submit-note">
+                  <div class="lock-icon">🔒</div>
+                  <span>Free, no-obligation estimate. We never sell your information.</span>
+                </div>
+
+                <div class="form-footer-meta">
+                  <strong>Quick heads up:</strong> Azle Drainage is a local contractor focused on honest recommendations.
+                  If we don’t think you need a big project, we’ll tell you.
+                </div>
+              </div>
+            </form>
+          </aside>
+        </section>
+
+        <!-- Trust strip -->
+        <section class="trust-strip">
+          <div class="trust-main">
+            <div class="trust-title">Trusted by homeowners around Azle &amp; NW Fort Worth.</div>
+            <div class="trust-text">
+              We’ve installed and fixed drainage systems for yards on slopes, clay soil, and tight side yards all over the area.
+              You get local experience, not guesswork.
+            </div>
+          </div>
+          <div class="trust-pill-row">
+            <div class="trust-pill">
+              <span class="dot"></span>
+              <span><span class="trust-rating">4.9★</span> average customer satisfaction</span>
+            </div>
+            <div class="trust-pill">
+              <span class="dot"></span>
+              <span>Licensed &amp; insured</span>
+            </div>
+            <div class="trust-pill">
+              <span class="dot"></span>
+              <span>Over 100+ drainage projects</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Supporting sections -->
+        <section class="sections">
+          <!-- How it works -->
+          <div class="card">
+            <h2 class="card-title">How your free drainage estimate works</h2>
+            <ul class="steps">
+              <li>
+                <div class="step-number">1</div>
+                <div class="step-body">
+                  <div class="step-heading">Tell us what’s happening when it rains.</div>
+                  <div class="step-copy">
+                    Use the short form above to share your address and what you’re seeing — standing water, erosion, water against the house, etc.
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="step-number">2</div>
+                <div class="step-body">
+                  <div class="step-heading">We review your property layout.</div>
+                  <div class="step-copy">
+                    We’ll look at your lot, slopes, and drainage paths using maps and photos, and reach out if we need any quick clarifications.
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="step-number">3</div>
+                <div class="step-body">
+                  <div class="step-heading">You get a clear plan and estimate.</div>
+                  <div class="step-copy">
+                    We’ll share a recommended solution — French drains, surface drains, grading, or a combo — along with pricing.
+                    No pressure, no surprise add-ons.
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Why / social proof -->
+          <div class="card">
+            <h2 class="card-title">Why homeowners choose Azle Drainage</h2>
+            <ul class="benefit-list">
+              <li>
+                <span class="icon">✔</span>
+                <span>We design around <strong>your yard</strong> — trees, fences, slopes, and clay soil — not a one-size-fits-all kit.</span>
+              </li>
+              <li>
+                <span class="icon">✔</span>
+                <span>Transparent, line-item estimates so you know exactly where your money is going.</span>
+              </li>
+              <li>
+                <span class="icon">✔</span>
+                <span>Respectful crews that treat your property like their own — clean job sites, clear communication.</span>
+              </li>
+            </ul>
+
+            <div class="testimonial-card">
+              “We used Azle Drainage after every storm turned our side yard into a swamp. They added a French drain and re-graded a problem area.
+              The water finally has somewhere to go, and our kids can use the yard again.”
+              <div class="testimonial-name">— J. Miller, Azle, TX</div>
+            </div>
+
+            <div class="testimonial-card">
+              “They were honest about what we actually needed and didn’t try to oversell. The estimate matched what we paid, and they finished on time.”
+              <div class="testimonial-name">— K. Ramirez, NW Fort Worth</div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div>© <span id="year"></span> Azle Drainage. All rights reserved.</div>
+        <div class="footer-contact">
+          Call <a href="tel:+16825166797">(682) 516-6797</a> or email
+          <a href="mailto:info@azletx.com">info@azletx.com</a>
+          if you have immediate drainage concerns.
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const form = document.getElementById('estimate-form');
+      const nextBtn = document.getElementById('next-step');
+      const prevBtn = document.getElementById('prev-step');
+      const submitBtn = document.getElementById('submit-btn');
+
+      const steps = document.querySelectorAll('.step');
+      const badge = document.querySelector('.form-badge');
+      const progressFill = document.getElementById('progress-fill');
+      const progressPercentage = document.getElementById('progress-percentage');
+      const successState = document.getElementById('success-state');
+      const formCard = document.getElementById('form-card');
+
+      const alertSuccess = document.getElementById('alert-success');
+      const alertError = document.getElementById('alert-error');
+
+      let currentStep = 1;
+
+      function setStep(step) {
+        currentStep = step;
+        steps.forEach((s) => {
+          const stepNum = parseInt(s.getAttribute('data-step'), 10);
+          s.classList.toggle('active', stepNum === step);
+        });
+
+        if (badge) {
+          badge.textContent = step === 1 ? 'Step 1 of 2' : 'Step 2 of 2';
+        }
+
+        if (progressFill && progressPercentage) {
+          if (step === 1) {
+            progressFill.style.width = '50%';
+            progressPercentage.textContent = '50% complete';
+          } else {
+            progressFill.style.width = '100%';
+            progressPercentage.textContent = '100% complete';
+          }
+        }
+
+        if (alertSuccess) alertSuccess.classList.remove('visible');
+        if (alertError) alertError.classList.remove('visible');
+      }
+
+      function markError(fieldWrapper, message) {
+        if (!fieldWrapper) return;
+        fieldWrapper.classList.add('error');
+        const err = fieldWrapper.querySelector('.error-text');
+        if (err && message) {
+          err.textContent = message;
+        }
+      }
+
+      function clearErrors() {
+        const wrappers = form.querySelectorAll('.input-group');
+        wrappers.forEach((w) => w.classList.remove('error'));
+      }
+
+      function validateStep1() {
+        clearErrors();
+        let isValid = true;
+
+        const serviceField = document.getElementById('service_interest');
+        const addressField = document.getElementById('address');
+        const cityField = document.getElementById('city');
+
+        if (serviceField && !serviceField.value) {
+          markError(serviceField.closest('.input-group'), 'Please choose the closest match.');
+          isValid = false;
+        }
+
+        if (addressField && !addressField.value.trim()) {
+          markError(addressField.closest('.input-group'), 'Please enter your street address.');
+          isValid = false;
+        }
+
+        if (cityField && !cityField.value.trim()) {
+          markError(cityField.closest('.input-group'), 'Please enter your city.');
+          isValid = false;
+        }
+
+        return isValid;
+      }
+
+      function validateStep2() {
+        clearErrors();
+        let isValid = true;
+
+        const nameField = document.getElementById('name');
+        const phoneField = document.getElementById('phone');
+
+        if (nameField && !nameField.value.trim()) {
+          markError(nameField.closest('.input-group'), 'Please enter your name.');
+          isValid = false;
+        }
+
+        if (phoneField) {
+          const phoneVal = phoneField.value.replace(/\D/g, '');
+          if (phoneVal.length < 10) {
+            markError(phoneField.closest('.input-group'), 'Please enter a valid phone number.');
+            isValid = false;
+          }
+        }
+
+        return isValid;
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+          if (!validateStep1()) return;
+          setStep(2);
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+          setStep(1);
+        });
+      }
+
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          if (!validateStep2()) {
+            return;
+          }
+
+          if (submitBtn) {
+            submitBtn.disabled = true;
+          }
+          if (alertSuccess) alertSuccess.classList.remove('visible');
+          if (alertError) alertError.classList.remove('visible');
+
+          const formData = new FormData(form);
+
+          const payload = {
+            name: (formData.get('name') || '').toString().trim(),
+            phone: (formData.get('phone') || '').toString().trim(),
+            address: (formData.get('address') || '').toString().trim(),
+            city: (formData.get('city') || '').toString().trim(),
+            state: 'TX',
+            message: 'Meta Ad - Landing Page B',
+            service_interest: (formData.get('service_interest') || '').toString().trim()
+          };
+
+          fetch('https://web-production-8fb9e.up.railway.app/webhook/new-lead', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          })
+          .then(function(res) {
+            if (!res.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return res.text().catch(function() { return ''; });
+          })
+          .then(function() {
+            // Fire Meta Pixel Lead event if available
+            if (typeof fbq === 'function') {
+              try {
+                fbq('track', 'Lead');
+              } catch (err) {
+                // fail silently
+              }
+            }
+
+            // Show success state
+            if (successState) {
+              successState.classList.add('visible');
+            }
+
+            // Optionally hide the form itself
+            if (form) {
+              form.style.display = 'none';
+            }
+
+            if (alertSuccess) {
+              alertSuccess.classList.add('visible');
+            }
+          })
+          .catch(function() {
+            if (alertError) {
+              alertError.classList.add('visible');
+            }
+          })
+          .finally(function() {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+            }
+          });
+        });
+      }
+
+      // Set initial step
+      setStep(1);
+
+      // Footer year
+      const yearEl = document.getElementById('year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+    })();
+  </script>
+</body>
+</html>
