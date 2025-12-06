@@ -533,16 +533,6 @@
                 <div class="error-message" id="address-error">Please enter your property address</div>
             </div>
             
-            <div class="form-group">
-                <label for="service_interest">What drain issue are you having?</label>
-                <textarea 
-                    id="service_interest" 
-                    name="service_interest" 
-                    placeholder="Slow drain, backyard flooding, foul odor, etc."
-                    rows="3"
-                ></textarea>
-            </div>
-            
             <input type="hidden" id="city" name="city" value="">
             <input type="hidden" id="state" name="state" value="TX">
             <input type="hidden" name="service_type" value="Drainage">
@@ -617,7 +607,7 @@
                     address: formData.get('address') ? formData.get('address').trim() : '',
                     city: formData.get('city') ? formData.get('city').trim() : 'Azle',
                     state: 'TX',
-                    service_interest: formData.get('service_interest') ? formData.get('service_interest').trim() : '',
+                    service_interest: '', // Always empty - will qualify via text
                     service_type: 'Drainage',
                     sms_consent: formData.get('sms_consent') === 'on' ? true : false
                 };
