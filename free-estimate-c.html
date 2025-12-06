@@ -193,7 +193,8 @@
             margin-bottom: 6px;
         }
 
-        input, textarea {
+        .form-group input,
+        .form-group textarea {
             width: 100%;
             padding: 16px;
             border: 2px solid #e1e5e9;
@@ -204,18 +205,14 @@
             background: var(--white);
         }
         
-        /* Override width for checkboxes */
-        input[type="checkbox"] {
-            width: auto;
-            padding: 0;
-        }
-
-        input:focus, textarea:focus {
+        .form-group input:focus,
+        .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
         }
 
-        input.error, textarea.error {
+        .form-group input.error,
+        .form-group textarea.error {
             border-color: var(--error);
         }
 
@@ -231,42 +228,47 @@
             margin-top: 4px;
         }
 
-        .checkbox-group {
-            margin: 20px 0;
+        /* SMS Consent Checkbox Styling */
+        .form-group.checkbox-group {
+            margin-bottom: 24px;
         }
 
-        .checkbox-wrapper {
+        .checkbox-group .checkbox-wrapper {
             display: flex;
             align-items: flex-start;
             gap: 12px;
         }
 
-        .checkbox-wrapper input[type="checkbox"] {
+        .checkbox-group input[type="checkbox"] {
             width: 20px;
             height: 20px;
             min-width: 20px;
             margin-top: 2px;
             cursor: pointer;
             accent-color: var(--primary);
-            flex-shrink: 0;
         }
 
-        .checkbox-wrapper label {
-            font-size: 14px;
+        .checkbox-group label {
             font-weight: 400;
-            color: #666;
+            font-size: 14px;
             line-height: 1.5;
+            color: #1f2937;
             cursor: pointer;
-            margin: 0;
+            margin-bottom: 0;
         }
 
-        .checkbox-wrapper label a {
+        .checkbox-group label a {
             color: var(--primary);
             text-decoration: underline;
         }
 
-        .checkbox-wrapper label a:hover {
+        .checkbox-group label a:hover {
             color: #0d4530;
+        }
+
+        .checkbox-group .error-message {
+            margin-top: 8px;
+            margin-left: 32px;
         }
 
         .submit-btn {
