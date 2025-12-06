@@ -793,7 +793,6 @@
             <form id="estimate-form" novalidate>
               <!-- Hidden values required by webhook -->
               <input type="hidden" name="state" value="TX" />
-              <input type="hidden" name="message" value="Meta Ad - Landing Page B" />
               <input type="hidden" name="service_type" value="Drainage" />
 
               <!-- STEP 1: Property -->
@@ -1207,7 +1206,6 @@
             address: (formData.get('address') || '').toString().trim(),
             city: (formData.get('city') || '').toString().trim(),
             state: 'TX',
-            message: 'Meta Ad - Landing Page B',
             service_interest: (formData.get('service_interest') || '').toString().trim(),
             service_type: 'Drainage',
             sms_consent: formData.get('sms_consent') === 'on' ? true : false
