@@ -232,12 +232,16 @@
         .checkbox-wrapper {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
+            gap: 12px;
         }
 
         .checkbox-wrapper input[type="checkbox"] {
-            width: auto;
-            margin-top: 4px;
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: var(--primary);
             flex-shrink: 0;
         }
 
@@ -245,12 +249,18 @@
             font-size: 14px;
             font-weight: 400;
             color: #666;
+            line-height: 1.5;
+            cursor: pointer;
             margin: 0;
         }
 
         .checkbox-wrapper label a {
             color: var(--primary);
             text-decoration: underline;
+        }
+
+        .checkbox-wrapper label a:hover {
+            color: #0d4530;
         }
 
         .submit-btn {
@@ -514,11 +524,11 @@
             <input type="hidden" name="service_type" value="Drainage">
             <input type="hidden" name="message" value="Meta Ad - Landing Page C">
             
-            <div class="form-group checkbox-group" style="margin-bottom: 16px;">
-                <div class="checkbox-wrapper" style="display: flex; align-items: flex-start; gap: 10px;">
-                    <input type="checkbox" id="sms_consent" name="sms_consent" required style="width: auto; margin-top: 4px; flex-shrink: 0;">
-                    <label for="sms_consent" style="font-size: 14px; font-weight: 400; color: #666; margin: 0;">
-                        I agree to receive text messages from Azle Drainage about my drainage estimate and consent to the <a href="privacy-policy.html" target="_blank" style="color: var(--primary); text-decoration: underline;">Privacy Policy</a>. Message and data rates may apply. Reply STOP to opt out.
+            <div class="form-group checkbox-group">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="sms_consent" name="sms_consent" required>
+                    <label for="sms_consent">
+                        I agree to receive text messages from Azle Drainage about my drainage estimate and consent to the <a href="privacy-policy.html" target="_blank">Privacy Policy</a>. Message and data rates may apply. Reply STOP to opt out.
                     </label>
                 </div>
                 <div class="error-message" id="sms_consent-error">You must agree to receive text messages to submit this form</div>
