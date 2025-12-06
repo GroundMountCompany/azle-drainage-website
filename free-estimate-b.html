@@ -326,6 +326,7 @@
 
     input[type="text"],
     input[type="tel"],
+    input[type="email"],
     select {
       width: 100%;
       border-radius: 999px;
@@ -339,6 +340,7 @@
 
     input[type="text"]:focus,
     input[type="tel"]:focus,
+    input[type="email"]:focus,
     select:focus {
       border-color: var(--primary);
       box-shadow: 0 0 0 1px rgba(17, 87, 64, 0.2);
@@ -691,6 +693,22 @@
       font-size: 0.8rem;
       color: var(--muted);
     }
+    
+    .success-state a.home-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid var(--primary);
+      transition: all 0.3s;
+    }
+    
+    .success-state a.home-link:hover {
+      color: #0d4530;
+      border-bottom-color: #0d4530;
+    }
   </style>
 </head>
 <body>
@@ -771,7 +789,7 @@
 
             <!-- Success state, hidden by default -->
             <div class="success-state" id="success-state">
-              <div class="success-title">Thanks! We’ve got your request. ✅</div>
+              <div class="success-title">Thanks! We've got your request. ✅</div>
               <p class="success-body">
                 A drainage specialist from Azle Drainage will review your property details and contact you at the number you provided.
               </p>
@@ -779,6 +797,7 @@
                 Most homeowners hear back within one business day. If your yard is actively flooding, you can also call us directly at
                 <a href="tel:+16825166797">(682) 516-6797</a>.
               </p>
+              <a href="https://azledrainage.com" class="home-link">Learn more about our services →</a>
             </div>
 
             <!-- Alerts -->

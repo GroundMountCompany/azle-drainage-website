@@ -203,6 +203,12 @@
             transition: border-color 0.3s;
             background: var(--white);
         }
+        
+        /* Override width for checkboxes */
+        input[type="checkbox"] {
+            width: auto;
+            padding: 0;
+        }
 
         input:focus, textarea:focus {
             outline: none;
@@ -369,6 +375,22 @@
         .success-note {
             font-size: 14px;
             color: #666;
+        }
+        
+        .success-state a.home-link {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .success-state a.home-link:hover {
+            color: #0d4530;
+            border-bottom-color: #0d4530;
         }
 
         /* Error State */
@@ -557,6 +579,7 @@
         <p class="success-text">Thank you for choosing Azle Drainage. We're here to help fix your drainage problems fast.</p>
         <a href="tel:6825166797" class="call-btn">Call Now: (682) 516-6797</a>
         <p class="success-note">Or we'll text/call you shortly.</p>
+        <a href="https://azledrainage.com" class="home-link">Learn more about our services →</a>
     </section>
 
     <script>

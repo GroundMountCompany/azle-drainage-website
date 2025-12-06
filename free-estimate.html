@@ -124,6 +124,12 @@
             -webkit-appearance: none; /* Remove iOS styling */
         }
         
+        /* Override width for checkboxes */
+        input[type="checkbox"] {
+            width: auto;
+            padding: 0;
+        }
+        
         input:focus, select:focus {
             outline: none;
             border-color: #115740;
@@ -243,6 +249,22 @@
             color: #155724;
             font-size: 16px;
             line-height: 1.6;
+        }
+        
+        .success-message a {
+            display: inline-block;
+            margin-top: 16px;
+            color: #115740;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #115740;
+            transition: all 0.3s;
+        }
+        
+        .success-message a:hover {
+            color: #0d4530;
+            border-bottom-color: #0d4530;
         }
         
         /* Benefits section - below the fold */
@@ -458,6 +480,7 @@
             <div class="success-message" id="successMessage">
                 <h2>Thank You!</h2>
                 <p id="successText">We've received your request and will contact you shortly at the number you provided!</p>
+                <a href="https://azledrainage.com">Learn more about our services →</a>
             </div>
         </section>
         
