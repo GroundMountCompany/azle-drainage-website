@@ -817,29 +817,6 @@
               <!-- STEP 1: Property -->
               <div class="step active" data-step="1">
                 <div class="input-group">
-                  <label for="service_interest">What best describes your drainage issue?</label>
-                  <select id="service_interest" name="service_interest" required>
-                    <option value="">Select an option</option>
-                    <option value="Yard flooding / standing water">
-                      Yard flooding / standing water after rain
-                    </option>
-                    <option value="Water against house / foundation">
-                      Water pooling near house or foundation
-                    </option>
-                    <option value="Erosion / washouts">
-                      Erosion, washouts, or sloping problems
-                    </option>
-                    <option value="Driveway / ditch drainage">
-                      Driveway, culvert, or ditch drainage issue
-                    </option>
-                    <option value="Other drainage issue">
-                      Other drainage issue
-                    </option>
-                  </select>
-                  <div class="error-text">Please choose the closest match.</div>
-                </div>
-
-                <div class="input-group">
                   <label for="address">Street address</label>
                   <input
                     type="text"
@@ -1128,14 +1105,8 @@
         clearErrors();
         let isValid = true;
 
-        const serviceField = document.getElementById('service_interest');
         const addressField = document.getElementById('address');
         const cityField = document.getElementById('city');
-
-        if (serviceField && !serviceField.value) {
-          markError(serviceField.closest('.input-group'), 'Please choose the closest match.');
-          isValid = false;
-        }
 
         if (addressField && !addressField.value.trim()) {
           markError(addressField.closest('.input-group'), 'Please enter your street address.');
@@ -1225,7 +1196,7 @@
             address: (formData.get('address') || '').toString().trim(),
             city: (formData.get('city') || '').toString().trim(),
             state: 'TX',
-            service_interest: (formData.get('service_interest') || '').toString().trim(),
+            service_interest: '', // Always empty – will qualify via text
             service_type: 'Drainage',
             sms_consent: formData.get('sms_consent') === 'on' ? true : false
           };
