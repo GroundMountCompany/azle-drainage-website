@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Google Maps API for Address Autocomplete -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdGR_BgHshT194ZboXGjzHJEufyX2LtBI&libraries=places&loading=async&v=weekly"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdGR_BgHshT194ZboXGjzHJEufyX2LtBI&libraries=places&v=weekly"></script>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -854,10 +854,8 @@
     </script>
     <!-- Google Places Autocomplete -->
     <script>
-    async function initAutocomplete() {
+    function initAutocomplete() {
         try {
-            await google.maps.importLibrary('places');
-
             const autocomplete = new google.maps.places.PlaceAutocompleteElement();
             autocomplete.includedRegionCodes = ['us'];
             autocomplete.includedPrimaryTypes = ['address'];
