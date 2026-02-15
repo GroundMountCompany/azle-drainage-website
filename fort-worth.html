@@ -58,7 +58,12 @@
     <link rel="preload" as="image" href="images/AzleDrainageMAINlogo.png">    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Google Maps API for Address Autocomplete -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdGR_BgHshT194ZboXGjzHJEufyX2LtBI&libraries=places&v=weekly"></script>
+    <script>
+    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once."):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+      key: "AIzaSyDdGR_BgHshT194ZboXGjzHJEufyX2LtBI",
+      v: "weekly"
+    });
+    </script>
     
     <style>
         /* Reset and Base Styles */
@@ -759,34 +764,6 @@
             color: var(--accent-orange);
         }
         
-        /* Google Places Autocomplete */
-        gmp-place-autocomplete {
-            display: block;
-            width: 100%;
-        }
-
-        gmp-place-autocomplete::part(input) {
-            width: 100%;
-            padding: 16px;
-            font-size: 16px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            transition: border-color 0.3s;
-            font-family: inherit;
-            line-height: 1.6;
-            color: #333;
-            box-sizing: border-box;
-        }
-
-        gmp-place-autocomplete::part(input):focus {
-            outline: none;
-            border-color: #115740;
-        }
-
-        gmp-place-autocomplete.error::part(input) {
-            border-color: #dc3545;
-        }
-
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero-content {
@@ -1069,9 +1046,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Property Address *</label>
-                        <div id="address-container"></div>
-                        <input type="hidden" id="address" name="address" value="">
+                        <label for="address">Property Address *</label>
+                        <input type="text" id="address" name="address" placeholder="Start typing your address..." required>
                         <div class="error-message" id="address-error">Please enter your property address</div>
                     </div>
 
@@ -1187,62 +1163,45 @@
     </script>
     <!-- Google Places Autocomplete -->
     <script>
-    function initAutocomplete() {
+    async function initAutocomplete() {
         try {
-            const autocomplete = new google.maps.places.PlaceAutocompleteElement();
-            autocomplete.includedRegionCodes = ['us'];
-            autocomplete.includedPrimaryTypes = ['address'];
-            autocomplete.placeholder = 'Start typing your address...';
+            const { Autocomplete } = await google.maps.importLibrary("places");
+            const input = document.getElementById("address");
+            if (!input) return;
 
-            const container = document.getElementById('address-container');
-            if (!container) return;
-            container.appendChild(autocomplete);
+            const autocomplete = new Autocomplete(input, {
+                componentRestrictions: { country: "us" },
+                types: ["address"],
+                fields: ["formatted_address", "address_components"]
+            });
 
-            autocomplete.addEventListener('gmp-select', async ({ placePrediction }) => {
-                const place = placePrediction.toPlace();
-                await place.fetchFields({ fields: ['formattedAddress', 'addressComponents'] });
+            autocomplete.addListener("place_changed", function() {
+                const place = autocomplete.getPlace();
+                if (!place.address_components) return;
 
-                let city = '';
-                let state = '';
+                if (place.formatted_address) {
+                    input.value = place.formatted_address;
+                }
 
-                if (place.addressComponents) {
-                    for (const component of place.addressComponents) {
-                        if (component.types.includes('locality')) {
-                            city = component.longText;
-                        }
-                        if (component.types.includes('administrative_area_level_1')) {
-                            state = component.shortText;
-                        }
+                var city = "";
+                var state = "";
+                for (var i = 0; i < place.address_components.length; i++) {
+                    var component = place.address_components[i];
+                    if (component.types.indexOf("locality") !== -1) {
+                        city = component.long_name;
+                    }
+                    if (component.types.indexOf("administrative_area_level_1") !== -1) {
+                        state = component.short_name;
                     }
                 }
 
-                const addressField = document.getElementById('address');
-                const cityField = document.getElementById('city');
-                const stateField = document.getElementById('state');
-
-                if (addressField) addressField.value = place.formattedAddress || '';
+                var cityField = document.getElementById("city");
+                var stateField = document.getElementById("state");
                 if (cityField) cityField.value = city;
                 if (stateField && state) stateField.value = state;
-
-                // Clear error state on selection
-                autocomplete.classList.remove('error');
-                const errorEl = document.getElementById('address-error');
-                if (errorEl) errorEl.style.display = 'none';
             });
         } catch (err) {
-            console.error('Google Places failed to load, using fallback input:', err);
-            var container = document.getElementById('address-container');
-            var hiddenField = document.getElementById('address');
-            if (container) {
-                var input = document.createElement('input');
-                input.type = 'text';
-                input.id = 'address';
-                input.name = 'address';
-                input.placeholder = 'Street Address, City, TX';
-                input.required = true;
-                container.replaceWith(input);
-                if (hiddenField) hiddenField.remove();
-            }
+            console.error("Google Places autocomplete failed to load:", err);
         }
     }
 
