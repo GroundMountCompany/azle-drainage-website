@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://azledrainage.com/free-estimate-b.html">
 
   <!-- Google Maps API for Address Autocomplete -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdGR_BgHshT194ZboXGjzHJEufyX2LtBI&libraries=places&loading=async"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdGR_BgHshT194ZboXGjzHJEufyX2LtBI&libraries=places&loading=async&v=weekly"></script>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -647,6 +647,34 @@
       color: var(--muted);
     }
 
+    /* Google Places Autocomplete */
+    gmp-place-autocomplete {
+        display: block;
+        width: 100%;
+    }
+
+    gmp-place-autocomplete::part(input) {
+        width: 100%;
+        padding: 16px;
+        font-size: 16px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        transition: border-color 0.3s;
+        font-family: inherit;
+        line-height: 1.6;
+        color: #333;
+        box-sizing: border-box;
+    }
+
+    gmp-place-autocomplete::part(input):focus {
+        outline: none;
+        border-color: #115740;
+    }
+
+    gmp-place-autocomplete.error::part(input) {
+        border-color: #dc3545;
+    }
+
     /* Footer */
     footer {
       margin-top: 28px;
@@ -819,7 +847,8 @@
               <div class="step active" data-step="1">
                 <div class="input-group">
                   <label>Street address</label>
-                  <input type="text" id="address" name="address" placeholder="Street Address, City, TX" required>
+                  <div id="address-container"></div>
+                  <input type="hidden" id="address" name="address" value="">
                   <div class="field-hint">We only use this to look at your property layout and drainage.</div>
                   <div class="error-text">Please enter your street address.</div>
                 </div>
@@ -1087,11 +1116,19 @@
         if (err && message) {
           err.textContent = message;
         }
+        // Red border on autocomplete element
+        if (fieldWrapper.querySelector('#address-container')) {
+            const ac = document.querySelector('gmp-place-autocomplete');
+            if (ac) ac.classList.add('error');
+        }
       }
 
       function clearErrors() {
         const wrappers = form.querySelectorAll('.input-group');
         wrappers.forEach((w) => w.classList.remove('error'));
+        // Clear autocomplete error state
+        const ac = document.querySelector('gmp-place-autocomplete');
+        if (ac) ac.classList.remove('error');
       }
 
       function validateStep1() {
@@ -1267,6 +1304,71 @@
         });
       }
     })();
+  </script>
+  <!-- Google Places Autocomplete -->
+  <script>
+  async function initAutocomplete() {
+      try {
+          await google.maps.importLibrary('places');
+
+          const autocomplete = new google.maps.places.PlaceAutocompleteElement();
+          autocomplete.includedRegionCodes = ['us'];
+          autocomplete.includedPrimaryTypes = ['address'];
+          autocomplete.placeholder = 'Start typing your address...';
+
+          const container = document.getElementById('address-container');
+          if (!container) return;
+          container.appendChild(autocomplete);
+
+          autocomplete.addEventListener('gmp-select', async ({ placePrediction }) => {
+              const place = placePrediction.toPlace();
+              await place.fetchFields({ fields: ['formattedAddress', 'addressComponents'] });
+
+              let city = '';
+              let state = '';
+
+              if (place.addressComponents) {
+                  for (const component of place.addressComponents) {
+                      if (component.types.includes('locality')) {
+                          city = component.longText;
+                      }
+                      if (component.types.includes('administrative_area_level_1')) {
+                          state = component.shortText;
+                      }
+                  }
+              }
+
+              const addressField = document.getElementById('address');
+              const cityField = document.getElementById('city');
+              const stateField = document.getElementById('state');
+
+              if (addressField) addressField.value = place.formattedAddress || '';
+              if (cityField) cityField.value = city;
+              if (stateField && state) stateField.value = state;
+
+              // Clear error state on selection
+              autocomplete.classList.remove('error');
+              const errorEl = document.getElementById('address-error');
+              if (errorEl) errorEl.style.display = 'none';
+          });
+      } catch (err) {
+          console.error('Google Places failed to load, using fallback input:', err);
+          var container = document.getElementById('address-container');
+          var hiddenField = document.getElementById('address');
+          if (container) {
+              var input = document.createElement('input');
+              input.type = 'text';
+              input.id = 'address';
+              input.name = 'address';
+              input.placeholder = 'Street Address, City, TX';
+              input.required = true;
+              container.replaceWith(input);
+              if (hiddenField) hiddenField.remove();
+          }
+      }
+  }
+
+  initAutocomplete();
   </script>
 </body>
 </html>
