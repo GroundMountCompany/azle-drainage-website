@@ -58,7 +58,7 @@
     <link rel="preload" as="image" href="images/AzleDrainageMAINlogo.png">    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Google Maps API for Address Autocomplete -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdGR_BgHshT194ZboXGjzHJEufyX2LtBI&libraries=places"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdGR_BgHshT194ZboXGjzHJEufyX2LtBI&libraries=places&loading=async"></script>
     
     <style>
         /* Reset and Base Styles */
@@ -811,6 +811,30 @@
             box-shadow: 0 8px 30px rgba(245, 166, 35, 0.4);
         }
         
+        /* Google Places Autocomplete Element */
+        gmp-place-autocomplete {
+            width: 100%;
+            display: block;
+        }
+
+        gmp-place-autocomplete::part(input) {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+            font-family: inherit;
+            line-height: 1.6;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        gmp-place-autocomplete::part(input):focus {
+            outline: none;
+            border-color: #115740;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .hero-content {
@@ -1104,8 +1128,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="address">Property Address *</label>
-                        <input type="text" id="address" name="address" class="address-autocomplete" placeholder="Start typing your address..." required>
+                        <label>Property Address *</label>
+                    <div id="address-container"></div>
+                    <input type="hidden" id="address" name="address" value="">
                         <div class="error-message" id="address-error">Please enter your property address</div>
                     </div>
 
@@ -1234,63 +1259,49 @@
         });
     </script>
 
-    <!-- Google Places Autocomplete for Address Fields -->
+    <!-- Google Places Autocomplete (PlaceAutocompleteElement API) -->
     <script>
-        // Google Places Autocomplete for Address Fields
-        function initAutocomplete() {
-            const addressInputs = document.querySelectorAll('.address-autocomplete');
-            
-            addressInputs.forEach(input => {
-                const autocomplete = new google.maps.places.Autocomplete(input, {
-                    componentRestrictions: { country: 'us' },
-                    fields: ['address_components', 'formatted_address'],
-                    types: ['address']
-                });
+        async function initAutocomplete() {
+            const { PlaceAutocompleteElement } = await google.maps.importLibrary('places');
 
-                autocomplete.addListener('place_changed', function() {
-                    const place = autocomplete.getPlace();
-                    
-                    if (!place.address_components) {
-                        return;
-                    }
+            const autocomplete = new PlaceAutocompleteElement({
+                includedRegionCodes: ['us'],
+                includedPrimaryTypes: ['address'],
+            });
+            autocomplete.placeholder = 'Start typing your address...';
 
-                    // Auto-populate city and state fields if they exist
-                    let city = '';
-                    let state = '';
-                    
-                    place.address_components.forEach(component => {
+            const container = document.getElementById('address-container');
+            if (container) container.appendChild(autocomplete);
+
+            autocomplete.addEventListener('gmp-select', async ({ placePrediction }) => {
+                const place = placePrediction.toPlace();
+                await place.fetchFields({ fields: ['addressComponents', 'formattedAddress'] });
+
+                let city = '';
+                let state = '';
+
+                if (place.addressComponents) {
+                    for (const component of place.addressComponents) {
                         if (component.types.includes('locality')) {
-                            city = component.long_name;
+                            city = component.longText;
                         }
                         if (component.types.includes('administrative_area_level_1')) {
-                            state = component.short_name;
+                            state = component.shortText;
                         }
-                    });
-
-                    // Fill hidden fields if they exist
-                    const cityField = document.getElementById('city-hidden') || document.querySelector('[name="city"]');
-                    const stateField = document.getElementById('state-hidden') || document.querySelector('[name="state"]');
-                    
-                    if (cityField) cityField.value = city;
-                    if (stateField) stateField.value = state;
-
-                    // Set the full address
-                    input.value = place.formatted_address;
-                });
-            });
-        }
-
-        // Initialize when page loads
-        if (typeof google !== 'undefined' && google.maps) {
-            google.maps.event.addDomListener(window, 'load', initAutocomplete);
-        } else {
-            // Fallback if Google Maps API hasn't loaded yet
-            window.addEventListener('load', function() {
-                if (typeof google !== 'undefined' && google.maps) {
-                    initAutocomplete();
+                    }
                 }
+
+                const cityField = document.getElementById('city');
+                const stateField = document.getElementById('state');
+                const addressField = document.getElementById('address');
+
+                if (cityField) cityField.value = city;
+                if (stateField) stateField.value = state;
+                if (addressField) addressField.value = place.formattedAddress || '';
             });
         }
+
+        initAutocomplete();
     </script>
 </body>
 </html>
