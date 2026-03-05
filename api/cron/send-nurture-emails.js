@@ -7,6 +7,14 @@ const TOTAL_EMAILS = 26;
 const SEND_INTERVAL_DAYS = 14;
 
 module.exports = async function handler(req, res) {
+  console.log('DEBUG AUTH:', {
+    querySec: req.query?.secret,
+    envSec: process.env.CRON_SECRET,
+    authHeader: req.headers?.authorization,
+    vercelHeader: req.headers?.['x-vercel-cron-auth-token'],
+    match: req.query?.secret === process.env.CRON_SECRET
+  });
+
   // Auth check — supports three methods:
   // 1. Vercel cron header: x-vercel-cron-auth-token (sent automatically by Vercel)
   // 2. Bearer token: Authorization: Bearer <secret> (standard HTTP auth)
