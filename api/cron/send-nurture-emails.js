@@ -7,10 +7,23 @@ const TOTAL_EMAILS = 26;
 const SEND_INTERVAL_DAYS = 14;
 
 module.exports = async function handler(req, res) {
-  // Auth check
+  // Auth check — supports three methods:
+  // 1. Vercel cron header: x-vercel-cron-auth-token (sent automatically by Vercel)
+  // 2. Bearer token: Authorization: Bearer <secret> (standard HTTP auth)
+  // 3. Query param: ?secret=<secret> (manual testing fallback)
   const secret = process.env.CRON_SECRET;
-  const auth = req.headers.authorization;
-  if (!secret || auth !== `Bearer ${secret}`) {
+  const vercelToken = req.headers['x-vercel-cron-auth-token'];
+  const bearerMatch = (req.headers.authorization || '').match(/^Bearer\s+(.+)$/i);
+  const bearerToken = bearerMatch ? bearerMatch[1] : null;
+  const queryToken = req.query.secret;
+
+  const authenticated = secret && (
+    vercelToken === secret ||
+    bearerToken === secret ||
+    queryToken === secret
+  );
+
+  if (!authenticated) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
