@@ -81,4 +81,30 @@ async function getRecord(recordId) {
   return res.json();
 }
 
-module.exports = { queryRecords, updateRecord, getRecord };
+/**
+ * Fetch ALL records from the table (no filter). Handles pagination.
+ */
+async function getAllRecords(fields = []) {
+  const { apiKey, baseId, tableName } = getConfig();
+  const url = new URL(tableUrl(baseId, tableName));
+  fields.forEach((f) => url.searchParams.append('fields[]', f));
+
+  const allRecords = [];
+  let offset = null;
+
+  do {
+    if (offset) url.searchParams.set('offset', offset);
+    const res = await fetch(url.toString(), { headers: headers(apiKey) });
+    if (!res.ok) {
+      const body = await res.text();
+      throw new Error(`Airtable fetch failed (${res.status}): ${body}`);
+    }
+    const data = await res.json();
+    allRecords.push(...data.records);
+    offset = data.offset || null;
+  } while (offset);
+
+  return allRecords;
+}
+
+module.exports = { queryRecords, updateRecord, getRecord, getAllRecords };

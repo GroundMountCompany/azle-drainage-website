@@ -1,7 +1,7 @@
 const { Resend } = require('resend');
 const path = require('path');
 const fs = require('fs');
-const { queryRecords, updateRecord } = require('../lib/airtable');
+const { getAllRecords, updateRecord } = require('../lib/airtable');
 
 const TOTAL_EMAILS = 26;
 const SEND_INTERVAL_DAYS = 14;
@@ -45,21 +45,24 @@ module.exports = async function handler(req, res) {
   const results = { sent: 0, errors: 0, skipped: 0, details: [] };
 
   try {
-    // Query leads ready for their next email
-    const formula = `AND(
-      {Drip_Status} = "active",
-      {Status} != "Complete",
-      {Drip_Position} <= ${TOTAL_EMAILS},
-      IS_BEFORE({next_send_at}, NOW()),
-      {Email} != ""
-    )`;
-
-    const fields = [
+    // Fetch all leads and filter in JS to avoid Airtable formula field-name conflicts
+    const allRecords = await getAllRecords([
       'Name', 'Email', 'Drip_Status', 'Drip_Position',
       'next_send_at', 'Status',
-    ];
+    ]);
 
-    const leads = await queryRecords(formula, fields);
+    const now_ms = Date.now();
+    const leads = allRecords.filter((r) => {
+      const f = r.fields;
+      if (f['Drip_Status'] !== 'active') return false;
+      if (f['Status'] === 'Complete') return false;
+      const pos = f['Drip_Position'] || 1;
+      if (pos > TOTAL_EMAILS) return false;
+      if (!f['Email']) return false;
+      // next_send_at must be in the past or not set
+      if (f['next_send_at'] && new Date(f['next_send_at']).getTime() > now_ms) return false;
+      return true;
+    });
 
     for (const lead of leads) {
       const { Name, Email, Drip_Position } = lead.fields;
