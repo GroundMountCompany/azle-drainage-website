@@ -1199,7 +1199,7 @@
             sms_consent: formData.get('sms_consent') === 'on' ? true : false
           };
 
-          fetch('https://web-production-8fb9e.up.railway.app/webhook/new-lead', {
+          fetch('/api/webhook/new-lead', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

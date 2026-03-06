@@ -1337,7 +1337,7 @@
             };
             
             try {
-                const response = await fetch('https://web-production-8fb9e.up.railway.app/webhook/new-lead', {
+                const response = await fetch('/api/webhook/new-lead', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

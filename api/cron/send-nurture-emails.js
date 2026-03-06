@@ -1,7 +1,5 @@
-const { Resend } = require('resend');
-const path = require('path');
-const fs = require('fs');
 const { getAllRecords, updateRecord } = require('../lib/airtable');
+const { sendNurtureEmail } = require('../lib/send-email');
 
 const TOTAL_EMAILS = 26;
 const SEND_INTERVAL_DAYS = 14;
@@ -37,10 +35,6 @@ module.exports = async function handler(req, res) {
   }
 
   const dryRun = req.query.dry === 'true';
-  const domain = process.env.APP_DOMAIN || 'https://azledrainage.com';
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  const senderEmail = process.env.SENDER_EMAIL || 'info@azletx.com';
-  const senderName = process.env.SENDER_NAME || 'Bert from Azle Drainage';
 
   const now = new Date().toISOString();
   const results = { sent: 0, errors: 0, skipped: 0, details: [] };
@@ -84,71 +78,23 @@ module.exports = async function handler(req, res) {
           continue;
         }
 
-        // Load HTML template
-        const templateNum = String(emailNum).padStart(2, '0');
-        const templatePath = path.join(__dirname, '..', '..', 'email-sequences', 'templates', `email-${templateNum}.html`);
-
-        if (!fs.existsSync(templatePath)) {
-          results.errors++;
-          results.details.push({ leadId, name: Name, email: emailNum, status: 'error', reason: `Template email-${templateNum}.html not found` });
-          continue;
-        }
-
-        let html = fs.readFileSync(templatePath, 'utf-8');
-
-        // Personalization
-        const firstName = (Name || 'there').split(' ')[0];
-        html = html.replace(/\{\{name\}\}/g, firstName);
-
-        // Tracking pixel
-        const pixelUrl = `${domain}/api/track/open/${leadId}/${emailNum}`;
-        html = html.replace(
-          '{{tracking_pixel}}',
-          `<img src="${pixelUrl}" width="1" height="1" alt="" style="display:none;border:0;" />`
-        );
-
-        // Click tracking — wrap CTA URLs
-        const clickBase = `${domain}/api/track/click/${leadId}/${emailNum}?url=`;
-        html = html.replace(/\{\{click_track_url\}\}/g, clickBase);
-
-        // Unsubscribe link
-        const unsubUrl = `${domain}/api/unsubscribe/${leadId}`;
-        html = html.replace(
-          '{{unsubscribe_link}}',
-          `<a href="${unsubUrl}" style="color:#bbbbbb; text-decoration:underline;">unsubscribe</a>`
-        );
-
-        // Convert relative image paths to absolute for email clients
-        html = html.replace(
-          /src=["']\.\.\/graphics\//g,
-          `src="${domain}/email-sequences/graphics/`
-        );
-
-        // Extract subject line from <title> tag
-        const titleMatch = html.match(/<title>([^<]+)<\/title>/);
-        const subject = titleMatch ? titleMatch[1] : `Email ${emailNum} from Azle Drainage`;
-
         if (dryRun) {
           results.sent++;
           results.details.push({
             leadId, name: Name, email: emailNum, to: Email,
-            subject, status: 'dry-run',
-            timestamp: now,
+            status: 'dry-run', timestamp: now,
           });
           console.log(`[DRY RUN] Would send email ${emailNum} to ${Email} (${Name})`);
           continue;
         }
 
-        // Send via Resend
-        const { error } = await resend.emails.send({
-          from: `${senderName} <${senderEmail}>`,
-          to: [Email],
-          subject,
-          html,
+        // Send via shared helper
+        const { subject, error } = await sendNurtureEmail({
+          leadId, emailNum, recipientEmail: Email, recipientName: Name,
         });
 
         if (error) {
-          throw new Error(error.message || JSON.stringify(error));
+          throw new Error(error);
         }
 
         // Update Airtable: increment email, set next send date
