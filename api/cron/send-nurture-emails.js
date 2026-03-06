@@ -5,6 +5,7 @@ const { getAllRecords, updateRecord } = require('../lib/airtable');
 
 const TOTAL_EMAILS = 26;
 const SEND_INTERVAL_DAYS = 14;
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 module.exports = async function handler(req, res) {
   console.log('DEBUG AUTH:', {
@@ -174,6 +175,7 @@ module.exports = async function handler(req, res) {
           timestamp: now,
         });
         console.log(`[SENT] Email ${emailNum} to ${Email} (${Name}) at ${now}`);
+        await delay(1000);
 
       } catch (err) {
         results.errors++;
@@ -182,6 +184,7 @@ module.exports = async function handler(req, res) {
           status: 'error', reason: err.message,
         });
         console.error(`[ERROR] Email ${emailNum} to ${Email} (${Name}): ${err.message}`);
+        await delay(1000);
       }
     }
   } catch (err) {
