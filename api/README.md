@@ -39,8 +39,8 @@ Set these in Vercel Dashboard > Settings > Environment Variables:
 
 | Field | Type | Notes |
 |-------|------|-------|
-| `email_status` | Single Select | Options: `active`, `completed`, `unsubscribed`. Set to `active` when lead enters sequence. |
-| `current_email` | Number (integer) | Starts at `1`. Tracks which email is next. |
+| `Drip_Status` | Single Select | Options: `active`, `completed`, `unsubscribed`. Set to `active` when lead enters sequence. |
+| `Drip_Position` | Number (integer) | Starts at `1`. Tracks which email is next. |
 | `next_send_at` | Date (include time) | ISO datetime. Set to NOW when lead enters sequence. Cron checks this. |
 | `last_email_sent_at` | Date (include time) | Updated after each successful send. |
 | `last_opened_at` | Date (include time) | Updated by open tracking pixel. |
@@ -53,8 +53,8 @@ Set these in Vercel Dashboard > Settings > Environment Variables:
 When a new lead comes in (form submission, Meta lead ad, etc.), set these fields:
 
 ```
-email_status: "active"
-current_email: 1
+Drip_Status: "active"
+Drip_Position: 1
 next_send_at: <current datetime in ISO format>
 ```
 
@@ -67,14 +67,14 @@ This can be done via:
 
 1. Runs daily at 9:00 AM CT (15:00 UTC) via Vercel Cron
 2. Queries Airtable for leads where:
-   - `email_status` = "active"
+   - `Drip_Status` = "active"
    - `Status` != "Complete"
-   - `current_email` <= 26
+   - `Drip_Position` <= 26
    - `next_send_at` <= now
    - `Email` is not empty
 3. For each lead: loads the HTML template, personalizes it, sends via Resend
-4. After send: increments `current_email`, sets `next_send_at` +14 days
-5. After email 26: sets `email_status` to "completed"
+4. After send: increments `Drip_Position`, sets `next_send_at` +14 days
+5. After email 26: sets `Drip_Status` to "completed"
 
 ## Testing
 

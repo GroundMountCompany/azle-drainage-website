@@ -8,7 +8,7 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    await updateRecord(leadId, { email_status: 'unsubscribed' });
+    await updateRecord(leadId, { Drip_Status: 'unsubscribed' });
     console.log(`[UNSUBSCRIBE] Lead ${leadId} unsubscribed`);
   } catch (err) {
     console.error(`[UNSUBSCRIBE ERROR] Lead ${leadId}: ${err.message}`);

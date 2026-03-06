@@ -47,23 +47,23 @@ module.exports = async function handler(req, res) {
   try {
     // Query leads ready for their next email
     const formula = `AND(
-      {email_status} = "active",
+      {Drip_Status} = "active",
       {Status} != "Complete",
-      {current_email} <= ${TOTAL_EMAILS},
+      {Drip_Position} <= ${TOTAL_EMAILS},
       IS_BEFORE({next_send_at}, NOW()),
       {Email} != ""
     )`;
 
     const fields = [
-      'Name', 'Email', 'email_status', 'current_email',
+      'Name', 'Email', 'Drip_Status', 'Drip_Position',
       'next_send_at', 'Status',
     ];
 
     const leads = await queryRecords(formula, fields);
 
     for (const lead of leads) {
-      const { Name, Email, current_email } = lead.fields;
-      const emailNum = current_email || 1;
+      const { Name, Email, Drip_Position } = lead.fields;
+      const emailNum = Drip_Position || 1;
       const leadId = lead.id;
 
       try {
@@ -152,14 +152,14 @@ module.exports = async function handler(req, res) {
         const nextSendAt = new Date(Date.now() + SEND_INTERVAL_DAYS * 24 * 60 * 60 * 1000).toISOString();
 
         const updateFields = {
-          current_email: nextEmail,
+          Drip_Position: nextEmail,
           next_send_at: nextSendAt,
           last_email_sent_at: now,
         };
 
         // Mark completed if past email 26
         if (nextEmail > TOTAL_EMAILS) {
-          updateFields.email_status = 'completed';
+          updateFields.Drip_Status = 'completed';
         }
 
         await updateRecord(leadId, updateFields);
